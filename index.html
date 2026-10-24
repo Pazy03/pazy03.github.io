@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="es" data-lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>María Paz García Umaña · Tecnología, creatividad y soluciones con propósito</title>
+  <meta name="description" content="María Paz García Umaña — estudiante avanzada de Ingeniería en Sistemas de Computación. Análisis, mejora de procesos, datos y soluciones prácticas. San José, Costa Rica.">
+  <meta property="og:title" content="María Paz García Umaña">
+  <meta property="og:description" content="Tecnología, creatividad y soluciones con propósito.">
+  <!-- Vista previa al compartir: cuando tengas tu usuario de GitHub, cambiá TU-USUARIO -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://TU-USUARIO.github.io/">
+  <meta property="og:image" content="https://TU-USUARIO.github.io/vista-previa.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#091426">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23091426'/><text x='32' y='41' font-size='22' font-weight='700' text-anchor='middle' font-family='Arial' fill='%23F5F8FC'>MPG</text><rect x='18' y='47' width='28' height='2.5' rx='1' fill='%23328FFF'/></svg>">
+  <script>
+    (function () {
+      var l = 'es';
+      try { var g = localStorage.getItem('idioma'); if (g) l = g; else if ((navigator.language || '').toLowerCase().indexOf('en') === 0) l = 'en'; } catch (e) {}
+      document.documentElement.setAttribute('data-lang', l); document.documentElement.lang = l;
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       PALETA DE MARCA (Manual de Marca Personal · oct 2026)
+       ========================================================= */
+    :root {
+      --noche:     #091426;   /* base principal */
+      --profundo:  #183153;   /* superficies */
+      --digital:   #328FFF;   /* acciones y acentos */
+      --hielo:     #F5F8FC;   /* fondos claros */
+      --plata:     #AAB7C8;   /* texto auxiliar */
+      --rosa:      #C59BAF;   /* acento personal, solo ocasional */
+      --blanco:    #FFFFFF;
+      --tinta:     #0F1B2E;   /* texto sobre claro */
+      --tinta-2:   #4A5A70;   /* texto secundario sobre claro */
+      --linea:     #E3E9F1;
+      --vidrio:    rgba(255,255,255,.05);
+      --vidrio-borde: rgba(170,183,200,.18);
+      --sombra: 0 24px 60px -30px rgba(9,20,38,.35);
+      --radio: 20px;
+      --titulo: 'Manrope', system-ui, sans-serif;
+      --texto: 'Inter', system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 50; background: var(--noche); }
+    body { font-family: var(--texto); background: var(--hielo); color: var(--tinta); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    :focus-visible { outline: 2px solid var(--digital); outline-offset: 3px; border-radius: 6px; }
+    ::selection { background: var(--digital); color: var(--blanco); }
+
+    html[data-lang="es"] .en { display: none !important; }
+    html[data-lang="en"] .es { display: none !important; }
+
+    .contenedor { max-width: 1160px; margin: 0 auto; }
+    section { padding-block: clamp(84px, 11vw, 136px); padding-left: max(18px, env(safe-area-inset-left, 0px), 5vw); padding-right: max(18px, env(safe-area-inset-right, 0px), 5vw); }
+    .oscuro { background: var(--noche); color: var(--hielo); }
+
+    /* Encabezados de sección */
+    .ojo {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-family: var(--titulo); font-size: .78rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--digital); margin-bottom: 16px;
+    }
+    .ojo::before { content: ""; width: 28px; height: 1.5px; background: currentColor; }
+    h2 { font-family: var(--titulo); font-weight: 700; font-size: clamp(2rem, 4.4vw, 3.1rem); line-height: 1.12; letter-spacing: -.02em; }
+    h2 .suave { font-weight: 300; }
+    .bajada { color: var(--tinta-2); font-size: 1.06rem; max-width: 600px; margin-top: 16px; }
+    .oscuro .bajada { color: var(--plata); }
+    .cabeza { margin-bottom: clamp(44px, 6vw, 68px); }
+
+    /* Aparición suave */
+    .aparece { animation: subir .9s cubic-bezier(.2,.7,.2,1) both; }
+    @keyframes subir { from { transform: translateY(10px); } to { transform: none; } }
+
+    /* Botones */
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px; text-decoration: none; cursor: pointer;
+      font-family: var(--titulo); font-weight: 600; font-size: .95rem;
+      padding: 14px 24px; border-radius: 999px; border: 1.5px solid transparent;
+      transition: transform .3s, background .3s, border-color .3s, color .3s, box-shadow .3s;
+    }
+    .btn svg { width: 17px; height: 17px; transition: transform .3s; }
+    .btn:hover svg { transform: translateX(3px); }
+    .btn-primario { background: var(--digital); color: var(--blanco); box-shadow: 0 10px 30px -12px rgba(50,143,255,.7); }
+    .btn-primario:hover { background: #4A9DFF; transform: translateY(-2px); }
+    .btn-fantasma { border-color: rgba(170,183,200,.4); color: var(--hielo); }
+    .btn-fantasma:hover { border-color: var(--hielo); background: rgba(255,255,255,.05); }
+    .btn-claro { border-color: var(--linea); color: var(--tinta); background: var(--blanco); }
+    .btn-claro:hover { border-color: var(--tinta); }
+
+    /* =========================================================
+       MENÚ
+       ========================================================= */
+    nav {
+      position: fixed; inset: 0 0 auto 0; z-index: 40; margin-top: env(safe-area-inset-top, 0px);
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+      padding-block: 18px; padding-left: max(18px, env(safe-area-inset-left, 0px), 4vw); padding-right: max(18px, env(safe-area-inset-right, 0px), 4vw); color: var(--hielo);
+      transition: background .4s, padding .4s, box-shadow .4s;
+    }
+    nav.solido { background: rgba(9,20,38,.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); padding-block: 12px; box-shadow: 0 1px 0 rgba(170,183,200,.12); }
+    .marca { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .monograma {
+      font-family: var(--titulo); font-weight: 800; font-size: 1rem; letter-spacing: .04em;
+      width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
+      border: 1px solid var(--vidrio-borde); background: var(--vidrio); position: relative;
+    }
+    .monograma::after { content: ""; position: absolute; bottom: 9px; left: 13px; right: 13px; height: 2px; border-radius: 2px; background: var(--digital); }
+    .marca-nombre { font-family: var(--titulo); font-weight: 600; font-size: .95rem; line-height: 1.2; }
+    .marca-nombre small { display: block; font-weight: 400; font-size: .72rem; color: var(--plata); letter-spacing: .04em; }
+    .menu { display: flex; align-items: center; gap: 30px; list-style: none; }
+    .menu a { text-decoration: none; font-size: .9rem; font-weight: 500; color: #CDD6E2; position: relative; padding: 6px 0; transition: color .3s; }
+    .menu a::after { content: ""; position: absolute; left: 50%; right: 50%; bottom: 0; height: 2px; background: var(--digital); border-radius: 2px; transition: left .3s, right .3s; }
+    .menu a:hover, .menu a.activo { color: var(--blanco); }
+    .menu a:hover::after, .menu a.activo::after { left: 0; right: 0; }
+    .acciones-nav { display: flex; align-items: center; gap: 12px; }
+    .idioma { display: inline-flex; border: 1px solid var(--vidrio-borde); border-radius: 999px; padding: 3px; }
+    .idioma button { border: 0; background: transparent; color: var(--plata); font: 600 .74rem var(--titulo); letter-spacing: .06em; padding: 6px 11px; border-radius: 999px; cursor: pointer; }
+    .idioma button[aria-pressed="true"] { background: var(--hielo); color: var(--noche); }
+    .nav-cta { padding: 10px 18px; font-size: .86rem; border-color: rgba(50,143,255,.55); color: var(--hielo); }
+    .nav-cta:hover { background: var(--digital); border-color: var(--digital); }
+    .hamburguesa { display: none; background: none; border: 0; cursor: pointer; padding: 8px; position: relative; z-index: 42; }
+    .hamburguesa span { display: block; width: 22px; height: 2px; background: var(--hielo); margin: 5px 0; transition: .3s; border-radius: 2px; }
+
+    /* =========================================================
+       INICIO
+       ========================================================= */
+    .inicio {
+      position: relative; overflow: hidden;
+      padding-block: 140px 56px; padding-left: max(18px, env(safe-area-inset-left, 0px), 5vw); padding-right: max(18px, env(safe-area-inset-right, 0px), 5vw);
+      background:
+        radial-gradient(900px 500px at 78% 30%, rgba(50,143,255,.16), transparent 60%),
+        radial-gradient(700px 420px at 10% 90%, rgba(197,155,175,.10), transparent 60%),
+        linear-gradient(180deg, var(--noche) 0%, #0C1A30 100%);
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .red { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .55; pointer-events: none; }
+    .red line { stroke: rgba(170,183,200,.14); stroke-width: 1; }
+    .red circle { fill: rgba(50,143,255,.55); }
+    .red .flota { animation: flotar 14s ease-in-out infinite; }
+    .red .flota-2 { animation: flotar 18s ease-in-out infinite reverse; }
+    @keyframes flotar { 50% { transform: translate(10px, -14px); } }
+
+    .inicio-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(36px, 6vw, 80px); align-items: center; width: 100%; max-width: 1160px; margin: 0 auto; }
+    .linea-intro { display: flex; align-items: center; gap: 14px; color: var(--plata); font-family: var(--titulo); font-size: .82rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 26px; }
+    .linea-intro::before { content: ""; flex: none; width: 36px; height: 1px; background: var(--digital); }
+    .inicio h1 { font-family: var(--titulo); font-weight: 300; font-size: clamp(2.3rem, 5.2vw, 4.2rem); line-height: 1.08; text-wrap: balance; letter-spacing: -.035em; color: var(--hielo); }
+    .inicio h1 strong { font-weight: 700; display: block; background: linear-gradient(100deg, var(--hielo) 30%, #A9CCFF 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .paz { color: transparent; background: linear-gradient(100deg, #E2C6D3, var(--rosa)); -webkit-background-clip: text; background-clip: text; font-weight: 700; }
+    .propuesta { margin-top: 28px; font-size: clamp(1.02rem, 1.4vw, 1.15rem); color: #C9D3E0; max-width: 540px; }
+    .eslogan { margin-top: 22px; font-family: var(--titulo); font-weight: 600; color: var(--hielo); font-size: 1rem; display: flex; align-items: center; gap: 12px; }
+    .eslogan i { width: 8px; height: 8px; border-radius: 50%; background: var(--digital); box-shadow: 0 0 0 5px rgba(50,143,255,.18); }
+    .inicio .botones { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+
+    .retrato { position: relative; justify-self: center; width: min(100%, 410px); }
+    .retrato-marco { position: relative; border-radius: 28px; overflow: hidden; aspect-ratio: 4/5; border: 1px solid var(--vidrio-borde); box-shadow: 0 40px 80px -40px rgba(0,0,0,.7); }
+    .retrato-marco img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
+    .retrato-marco::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(9,20,38,.55)); }
+    .retrato::before { content: ""; position: absolute; inset: -14px -14px 14px 14px; border-radius: 32px; border: 1px solid rgba(50,143,255,.28); z-index: -1; }
+    .tarjeta-vidrio {
+      position: absolute; left: -34px; bottom: 34px; z-index: 2;
+      background: rgba(24,49,83,.62); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--vidrio-borde); border-radius: 16px; padding: 14px 18px;
+      display: flex; align-items: center; gap: 12px; color: var(--hielo); font-size: .86rem; max-width: 280px;
+    }
+    .tarjeta-vidrio .punto { flex: none; width: 10px; height: 10px; border-radius: 50%; background: #4ADE9B; box-shadow: 0 0 0 0 rgba(74,222,155,.5); animation: latido 2.6s infinite; }
+    @keyframes latido { 70% { box-shadow: 0 0 0 9px rgba(74,222,155,0); } 100% { box-shadow: 0 0 0 0 rgba(74,222,155,0); } }
+    .tarjeta-vidrio b { display: block; font-family: var(--titulo); font-weight: 600; font-size: .9rem; }
+    .tarjeta-vidrio span { color: var(--plata); font-size: .78rem; }
+
+    /* Barra de datos (como la referencia) */
+    .barra-datos {
+      position: relative; z-index: 1; width: 100%; max-width: 1160px; margin: clamp(56px, 7vw, 84px) auto 0;
+      display: grid; grid-template-columns: repeat(3, 1fr) auto; align-items: center;
+      border: 1px solid var(--vidrio-borde); background: rgba(255,255,255,.035); border-radius: 22px;
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 10px;
+    }
+    .dato { padding: 14px 24px; border-right: 1px solid var(--vidrio-borde); }
+    .dato b { display: block; font-family: var(--titulo); font-weight: 700; font-size: clamp(1.6rem, 2.6vw, 2.1rem); color: var(--hielo); line-height: 1.1; letter-spacing: -.02em; }
+    .dato b em { font-style: normal; color: var(--digital); }
+    .dato span { font-size: .84rem; color: var(--plata); }
+    .barra-datos .btn { margin: 0 10px 0 22px; }
+    .verbos { position: relative; z-index: 1; margin-top: 34px; text-align: center; font-family: var(--titulo); font-size: .86rem; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: var(--plata); }
+    .verbos i { font-style: normal; color: var(--digital); margin: 0 12px; }
+
+    /* =========================================================
+       SOBRE MÍ
+       ========================================================= */
+    .sobre { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(40px, 7vw, 100px); align-items: center; }
+    .sobre-foto { position: relative; }
+    .sobre-foto img { width: 100%; height: auto; aspect-ratio: 4/5; object-fit: cover; object-position: center 12%; border-radius: 26px; box-shadow: var(--sombra); }
+    .sobre-foto::after { content: ""; position: absolute; width: 110px; height: 110px; right: -22px; bottom: -22px; border-radius: 24px; background: radial-gradient(circle at 30% 30%, rgba(197,155,175,.55), rgba(197,155,175,.15)); z-index: -1; }
+    .sobre-foto::before { content: ""; position: absolute; width: 140px; height: 140px; left: -26px; top: -26px; border-radius: 50%; border: 1px dashed rgba(50,143,255,.4); z-index: -1; }
+    .sobre-texto p { color: var(--tinta-2); font-size: 1.04rem; margin-top: 18px; }
+    .cita-rectora {
+      margin-top: 30px; padding: 24px 26px; border-radius: 18px; background: var(--blanco); border: 1px solid var(--linea);
+      font-family: var(--titulo); font-size: clamp(1.08rem, 1.6vw, 1.24rem); font-weight: 500; color: var(--tinta); line-height: 1.5; position: relative;
+    }
+    .cita-rectora::before { content: "“"; position: absolute; top: -18px; left: 20px; font-size: 4rem; line-height: 1; color: var(--digital); font-weight: 700; }
+    .ia { margin-top: 28px; padding: 24px 26px; border-radius: 18px; color: var(--hielo);
+      background: radial-gradient(420px 180px at 100% 0%, rgba(50,143,255,.28), transparent 70%), var(--noche); }
+    .ia-cabeza { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .ia-icono { flex: none; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: rgba(50,143,255,.18); color: #8EC0FF; }
+    .ia-icono svg { width: 22px; height: 22px; }
+    .ia h3 { font-family: var(--titulo); font-weight: 700; font-size: 1.08rem; line-height: 1.3; }
+    .sobre-texto .ia p { color: #C9D3E0; font-size: .96rem; margin-top: 0; }
+    .ia-usos { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+    .ia-usos > span { font-size: .78rem; font-weight: 500; padding: 5px 11px; border-radius: 999px; border: 1px solid var(--vidrio-borde); color: #DCE4EE; }
+    .ia-usos > span:last-child { border-color: rgba(197,155,175,.5); color: #E2C6D3; }
+    .rasgos { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .rasgo { padding: 9px 16px; border-radius: 999px; background: var(--blanco); border: 1px solid var(--linea); font-family: var(--titulo); font-weight: 600; font-size: .88rem; display: inline-flex; align-items: center; gap: 8px; }
+    .rasgo::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--rosa); }
+
+    /* =========================================================
+       COMPETENCIAS
+       ========================================================= */
+    #competencias { background: var(--blanco); }
+    .competencias { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .competencia {
+      border: 1px solid var(--linea); border-radius: var(--radio); padding: 28px 24px; background: var(--hielo);
+      transition: transform .4s, box-shadow .4s, border-color .4s, background .4s;
+    }
+    .competencia:hover { transform: translateY(-6px); box-shadow: var(--sombra); background: var(--blanco); border-color: #CFDCEC; }
+    .competencia.destacada { background: var(--noche); color: var(--hielo); border-color: var(--noche); }
+    .icono { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: rgba(50,143,255,.1); color: var(--digital); margin-bottom: 22px; }
+    .icono svg { width: 24px; height: 24px; }
+    .competencia.destacada .icono { background: rgba(50,143,255,.18); }
+    .competencia h3 { font-family: var(--titulo); font-weight: 700; font-size: 1.12rem; line-height: 1.3; margin-bottom: 18px; }
+    .competencia ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .competencia li { font-size: .92rem; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--linea); }
+    .competencia.destacada li { border-color: rgba(170,183,200,.14); }
+    .competencia li:last-child { border-bottom: 0; padding-bottom: 0; }
+    .origen { flex: none; font-size: .66rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 2px 8px; border-radius: 6px; font-family: var(--titulo); }
+    .o-trabajo { background: rgba(50,143,255,.12); color: #1F6FD1; }
+    .o-u { background: rgba(197,155,175,.2); color: #8F5F75; }
+    .o-aprendo { background: rgba(170,183,200,.25); color: #56657A; }
+    .competencia.destacada .o-trabajo { background: rgba(50,143,255,.2); color: #8EC0FF; }
+    .competencia.destacada .o-u { background: rgba(197,155,175,.2); color: #E2C6D3; }
+    .competencia.destacada .o-aprendo { background: rgba(170,183,200,.15); color: var(--plata); }
+    .leyenda { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 26px; font-size: .84rem; color: var(--tinta-2); align-items: center; }
+    .leyenda span { display: inline-flex; align-items: center; gap: 8px; }
+
+    /* =========================================================
+       PROYECTOS
+       ========================================================= */
+    #proyectos { position: relative; overflow: hidden; }
+    #proyectos::before { content: ""; position: absolute; width: 700px; height: 700px; right: -260px; top: -200px; background: radial-gradient(circle, rgba(50,143,255,.12), transparent 65%); }
+    .proyectos { position: relative; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .proyecto {
+      border: 1px solid var(--vidrio-borde); border-radius: 24px; padding: clamp(26px, 3vw, 36px);
+      background: linear-gradient(160deg, rgba(24,49,83,.55), rgba(24,49,83,.15));
+      transition: border-color .4s, transform .4s; display: flex; flex-direction: column;
+    }
+    .proyecto:hover { border-color: rgba(50,143,255,.5); transform: translateY(-4px); }
+    .proyecto-cabeza { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 18px; }
+    .tipo { font-family: var(--titulo); font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--digital); }
+    .proyecto h3 { font-family: var(--titulo); font-weight: 700; font-size: clamp(1.35rem, 2.2vw, 1.65rem); line-height: 1.2; color: var(--hielo); margin-top: 6px; }
+    .logro { flex: none; text-align: right; font-family: var(--titulo); }
+    .logro b { display: block; font-size: 2.4rem; font-weight: 800; line-height: 1; background: linear-gradient(120deg, #E2C6D3, var(--rosa)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .logro span { font-size: .72rem; color: var(--plata); letter-spacing: .06em; }
+    .ficha { display: grid; gap: 14px; margin-top: 6px; flex: 1; }
+    .ficha div { display: grid; grid-template-columns: 112px 1fr; gap: 14px; font-size: .93rem; color: #C9D3E0; }
+    .ficha dt { font-family: var(--titulo); font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--plata); padding-top: 3px; }
+    .herramientas { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 22px; }
+    .herramientas > span { font-size: .76rem; font-weight: 500; padding: 5px 11px; border-radius: 999px; border: 1px solid var(--vidrio-borde); color: #DCE4EE; }
+    .pendiente { margin-top: 18px; font-size: .8rem; color: var(--plata); display: flex; gap: 8px; align-items: center; }
+    .pendiente::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--rosa); }
+
+    /* =========================================================
+       EXPERIENCIA Y FORMACIÓN
+       ========================================================= */
+    .exp-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: clamp(30px, 5vw, 60px); align-items: start; }
+    .linea-tiempo { position: relative; padding-left: 34px; }
+    .linea-tiempo::before { content: ""; position: absolute; left: 7px; top: 10px; bottom: 10px; width: 1.5px; background: linear-gradient(var(--digital), var(--linea)); }
+    .hito { position: relative; padding-bottom: 34px; }
+    .hito:last-child { padding-bottom: 0; }
+    .hito::before { content: ""; position: absolute; left: -34px; top: 7px; width: 16px; height: 16px; border-radius: 50%; background: var(--hielo); border: 2px solid var(--digital); }
+    .hito.actual::before { background: var(--digital); box-shadow: 0 0 0 6px rgba(50,143,255,.15); }
+    .fecha { font-family: var(--titulo); font-size: .76rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--digital); }
+    .hito h3 { font-family: var(--titulo); font-weight: 700; font-size: 1.18rem; line-height: 1.3; margin-top: 4px; }
+    .empresa { color: var(--tinta-2); font-size: .92rem; font-weight: 500; }
+    .hito ul { list-style: none; margin-top: 12px; display: grid; gap: 7px; }
+    .hito li { position: relative; padding-left: 18px; color: var(--tinta-2); font-size: .95rem; }
+    .hito li::before { content: ""; position: absolute; left: 0; top: 11px; width: 7px; height: 1.5px; background: var(--plata); }
+
+    .lateral { display: grid; gap: 18px; position: sticky; top: 100px; }
+    .caja { border-radius: var(--radio); padding: 28px; background: var(--blanco); border: 1px solid var(--linea); }
+    .caja.noche { background: var(--noche); color: var(--hielo); border-color: var(--noche); }
+    .caja small { font-family: var(--titulo); font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--digital); }
+    .caja h3 { font-family: var(--titulo); font-weight: 700; font-size: 1.22rem; line-height: 1.3; margin: 10px 0 6px; }
+    .caja p { font-size: .9rem; color: var(--plata); }
+    .progreso { margin-top: 22px; }
+    .progreso .riel { height: 6px; border-radius: 99px; background: rgba(170,183,200,.18); overflow: hidden; }
+    .progreso .riel i { display: block; height: 100%; width: 0; border-radius: 99px; background: linear-gradient(90deg, var(--digital), #8EC0FF); transition: width 2s cubic-bezier(.2,.7,.2,1); }
+    .progreso .marcas { display: flex; justify-content: space-between; font-size: .74rem; color: var(--plata); margin-top: 8px; }
+    .cert { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--linea); }
+    .cert:last-child { border-bottom: 0; padding-bottom: 0; }
+    .cert b { display: block; font-size: .9rem; font-weight: 600; line-height: 1.35; }
+    .cert span.inst { font-size: .78rem; color: var(--tinta-2); }
+    .cvs { display: grid; gap: 10px; margin-top: 20px; }
+    .caja .btn { width: 100%; justify-content: center; }
+    .caja .btn small { font-size: .66rem; font-weight: 700; letter-spacing: .08em; padding: 2px 6px; border-radius: 5px; background: var(--hielo); color: var(--tinta-2); }
+
+    /* =========================================================
+       MÁS ALLÁ DE MÍ
+       ========================================================= */
+    #mas-alla { background: var(--blanco); }
+    .mas-alla { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .interes { border-radius: var(--radio); padding: 30px 26px; background: var(--hielo); border: 1px solid var(--linea); transition: transform .4s; }
+    .interes:hover { transform: translateY(-4px); }
+    .interes .icono { background: rgba(197,155,175,.18); color: #A0718A; }
+    .interes h3 { font-family: var(--titulo); font-weight: 700; font-size: 1.15rem; margin-bottom: 8px; }
+    .interes p { font-size: .94rem; color: var(--tinta-2); }
+    .destinos { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .destinos span { font-size: .78rem; padding: 5px 11px; border-radius: 999px; border: 1px dashed var(--plata); color: var(--tinta-2); }
+    .frase {
+      margin-top: 22px; border-radius: 26px; padding: clamp(40px, 6vw, 64px); text-align: center; position: relative; overflow: hidden;
+      background: radial-gradient(600px 260px at 50% 0%, rgba(197,155,175,.22), transparent 70%), var(--noche); color: var(--hielo);
+    }
+    .frase blockquote { font-family: var(--titulo); font-weight: 300; font-size: clamp(1.5rem, 3.4vw, 2.4rem); line-height: 1.3; letter-spacing: -.02em; max-width: 820px; margin: 0 auto; }
+    .frase blockquote strong { font-weight: 700; color: #E2C6D3; }
+    .frase cite { display: block; margin-top: 18px; font-style: normal; font-family: var(--titulo); font-size: .76rem; font-weight: 600; letter-spacing: .2em; color: var(--plata); }
+
+    /* =========================================================
+       CONTACTO
+       ========================================================= */
+    .contacto { text-align: center; position: relative; overflow: hidden; }
+    .contacto .red { opacity: .35; }
+    .contacto .contenedor { position: relative; z-index: 1; }
+    .contacto h2 { max-width: 760px; margin: 0 auto; }
+    .contacto .bajada { margin-inline: auto; }
+    .contacto .botones { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 38px; }
+    .correo { margin-top: 26px; display: inline-flex; align-items: center; gap: 10px; background: var(--vidrio); border: 1px solid var(--vidrio-borde); color: #DCE4EE; padding: 11px 18px; border-radius: 12px; font: 500 .92rem var(--texto); cursor: pointer; }
+    .correo:hover { border-color: var(--digital); }
+    .pie { margin-top: 96px; padding-top: 26px; border-top: 1px solid var(--vidrio-borde); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: .8rem; color: var(--plata); text-align: left; }
+    .pie b { color: var(--hielo); font-weight: 500; }
+
+    .aviso { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 120px); background: var(--hielo); color: var(--noche); padding: 11px 20px; border-radius: 999px; font: 600 .88rem var(--titulo); z-index: 60; transition: transform .4s; box-shadow: var(--sombra); }
+    .aviso { visibility: hidden; }
+    .aviso.ver { transform: translate(-50%, 0); visibility: visible; }
+
+
+    /* =========================================================
+       FRANJA DE HERRAMIENTAS (carrusel infinito)
+       ========================================================= */
+    .franja { position: relative; z-index: 1; margin-top: 46px; overflow: hidden;
+      margin-left: calc(-1 * max(18px, env(safe-area-inset-left, 0px), 5vw)); margin-right: calc(-1 * max(18px, env(safe-area-inset-right, 0px), 5vw));
+      border-block: 1px solid var(--vidrio-borde); padding-block: 18px;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+    .franja-pista { display: flex; width: max-content; gap: 44px; animation: deslizar 46s linear infinite; }
+    .franja:hover .franja-pista { animation-play-state: paused; }
+    .franja-pista span { font-family: var(--titulo); font-weight: 600; font-size: .9rem; letter-spacing: .14em; text-transform: uppercase; color: var(--plata); white-space: nowrap; display: inline-flex; align-items: center; gap: 44px; }
+    .franja-pista span::after { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--digital); }
+    @keyframes deslizar { to { transform: translateX(-50%); } }
+
+    /* =========================================================
+       TERMINAL
+       ========================================================= */
+    .cabeza-doble { display: grid; grid-template-columns: 1fr minmax(0, 460px); gap: clamp(30px, 5vw, 64px); align-items: end; }
+    .terminal { border-radius: 16px; overflow: hidden; background: var(--noche); border: 1px solid var(--profundo); box-shadow: var(--sombra); font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: .82rem; line-height: 1.75; }
+    .terminal-barra { display: flex; align-items: center; gap: 7px; padding: 11px 14px; background: var(--profundo); color: var(--plata); font-size: .72rem; }
+    .terminal-barra i { width: 10px; height: 10px; border-radius: 50%; background: rgba(170,183,200,.35); }
+    .terminal-barra i:first-child { background: var(--rosa); }
+    .terminal-barra b { margin-left: auto; font-weight: 500; display: inline-flex; align-items: center; gap: 6px; }
+    .terminal-barra b::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #4ADE9B; animation: latido 2.6s infinite; }
+    .terminal pre { margin: 0; padding: 16px 18px 18px; color: #C9D3E0; white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; }
+    .terminal .p { color: var(--digital); }
+    .terminal .c { color: var(--hielo); }
+    .terminal .ok { color: #4ADE9B; }
+    .terminal .r { color: #E2C6D3; }
+    .terminal .cursor { display: inline-block; width: 8px; height: 1em; vertical-align: -2px; background: var(--digital); animation: parpadeo 1.1s steps(1) infinite; }
+    @keyframes parpadeo { 50% { opacity: 0; } }
+
+    /* =========================================================
+       CÓMO TRABAJO (proceso numerado)
+       ========================================================= */
+    #proceso { background: var(--blanco); }
+    .pasos { list-style: none; display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; counter-reset: paso; position: relative; }
+    .pasos::before { content: ""; position: absolute; top: 27px; left: 28px; right: 28px; height: 1.5px; background: repeating-linear-gradient(90deg, var(--plata) 0 6px, transparent 6px 12px); opacity: .55; }
+    .paso { position: relative; counter-increment: paso; }
+    .paso::before { content: counter(paso, decimal-leading-zero); position: relative; z-index: 1; display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--blanco); border: 1.5px solid var(--linea); font-family: var(--titulo); font-weight: 700; font-size: 1rem; color: var(--digital); margin-bottom: 20px; transition: background .4s, color .4s, border-color .4s; }
+    .paso:hover::before { background: var(--digital); color: var(--blanco); border-color: var(--digital); }
+    .paso h3 { font-family: var(--titulo); font-weight: 700; font-size: 1.05rem; line-height: 1.3; margin-bottom: 8px; }
+    .paso p { font-size: .9rem; color: var(--tinta-2); }
+
+    /* =========================================================
+       PIE DE PÁGINA EN COLUMNAS
+       ========================================================= */
+    .pie-grande { margin-top: 90px; padding-top: 44px; border-top: 1px solid var(--vidrio-borde); display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px; text-align: left; }
+    .pie-grande h4 { font-family: var(--titulo); font-size: .74rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--digital); margin-bottom: 14px; }
+    .pie-grande ul { list-style: none; display: grid; gap: 9px; }
+    .pie-grande a { text-decoration: none; color: var(--plata); font-size: .9rem; transition: color .3s; }
+    .pie-grande a:hover { color: var(--hielo); }
+    .pie-grande p { color: var(--plata); font-size: .9rem; max-width: 300px; margin-top: 12px; }
+    .pie-marca { display: flex; align-items: center; gap: 12px; font-family: var(--titulo); font-weight: 600; color: var(--hielo); }
+    .pie-final { margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--vidrio-borde); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: .8rem; color: var(--plata); text-align: left; }
+    .pie-final b { color: var(--hielo); font-weight: 600; }
+
+    @media (max-width: 1040px) { .pasos { grid-template-columns: repeat(3, 1fr); row-gap: 34px; } .pasos::before { display: none; } }
+    @media (max-width: 900px) { .cabeza-doble { grid-template-columns: 1fr; } .pie-grande { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .pasos { grid-template-columns: 1fr; } .pie-grande { grid-template-columns: 1fr; } }
+    @media (prefers-reduced-motion: reduce) { .franja-pista { flex-wrap: wrap; width: auto; justify-content: center; } .franja-pista span[aria-hidden] { display: none; } }
+
+
+    /* =========================================================
+       CONTENIDO + IA
+       ========================================================= */
+    #contenido-ia { position: relative; overflow: hidden; }
+    #contenido-ia::before { content: ""; position: absolute; width: 640px; height: 640px; left: -240px; bottom: -260px; background: radial-gradient(circle, rgba(197,155,175,.16), transparent 65%); }
+    .ia-grid { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .ia-card { border: 1px solid var(--vidrio-borde); border-radius: 24px; padding: clamp(26px, 3vw, 36px); background: linear-gradient(160deg, rgba(24,49,83,.55), rgba(24,49,83,.15)); }
+    .ia-card h3 { font-family: var(--titulo); font-weight: 700; font-size: clamp(1.3rem, 2vw, 1.55rem); color: var(--hielo); line-height: 1.25; margin: 8px 0 14px; }
+    .ia-card p { color: #C9D3E0; font-size: .97rem; }
+    .ia-card ul { list-style: none; display: grid; gap: 10px; margin-top: 18px; }
+    .ia-card li { position: relative; padding-left: 26px; color: #C9D3E0; font-size: .95rem; }
+    .ia-card li::before { content: ""; position: absolute; left: 0; top: 7px; width: 12px; height: 12px; border-radius: 4px; border: 1.5px solid var(--digital); }
+    .ia-card.rosa li::before { border-color: var(--rosa); }
+    .ia-card.rosa .tipo { color: #E2C6D3; }
+    .flujo { position: relative; grid-column: 1 / -1; display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 4px; }
+    .flujo div { border: 1px solid var(--vidrio-borde); border-radius: 16px; padding: 18px 16px; background: rgba(255,255,255,.03); position: relative; }
+    .flujo div:not(:last-child)::after { content: "→"; position: absolute; right: -11px; top: 50%; transform: translateY(-50%); color: var(--digital); font-weight: 700; z-index: 1; }
+    .flujo small { display: block; font-family: var(--titulo); font-size: .68rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--plata); }
+    .flujo b { display: block; font-family: var(--titulo); font-weight: 700; color: var(--hielo); font-size: .98rem; margin-top: 4px; }
+    .flujo div.humano { border-color: rgba(197,155,175,.5); }
+    .flujo div.humano small { color: #E2C6D3; }
+    .nota-ia { position: relative; grid-column: 1 / -1; display: flex; gap: 12px; align-items: center; color: var(--plata); font-size: .9rem; margin-top: 6px; }
+    .nota-ia::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--rosa); }
+    @media (max-width: 900px) { .ia-grid { grid-template-columns: 1fr; } .flujo { grid-template-columns: 1fr; } .flujo div:not(:last-child)::after { content: "↓"; right: auto; left: 50%; top: auto; bottom: -15px; transform: translateX(-50%); } }
+
+
+    /* Proyecto estrella (Reto Marte) */
+    .proyecto.estrella { grid-column: 1 / -1; display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(24px, 4vw, 44px); align-items: start; border-color: rgba(197,155,175,.35); }
+    .estrella-texto { min-width: 0; display: flex; flex-direction: column; }
+    .proyecto-cabeza { flex-wrap: wrap; }
+    .proyecto-cabeza > div:first-child { flex: 1 1 240px; min-width: 0; }
+    .estrella-fotos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .estrella-fotos img:first-child { grid-column: 1 / -1; }
+    .estrella-fotos img { width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--vidrio-borde); object-fit: cover; }
+    .estrella-fotos img:first-child { aspect-ratio: 4 / 3; }
+    .estrella-fotos img:nth-child(n+2) { aspect-ratio: 1 / 1; }
+    .enlace-proyecto { margin-top: 22px; display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; color: #8EC0FF; font-family: var(--titulo); font-weight: 600; font-size: .92rem; text-decoration: none; border-bottom: 1px solid rgba(142,192,255,.4); padding-bottom: 2px; }
+    .enlace-proyecto svg { width: 16px; height: 16px; transition: transform .3s; }
+    .enlace-proyecto:hover svg { transform: translate(2px, -2px); }
+    @media (max-width: 900px) { .proyecto.estrella { grid-template-columns: 1fr; } }
+    
+
+
+    .ia-card li b { color: var(--hielo); font-weight: 600; }
+    .kit { position: relative; grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; padding: 18px 22px; border-radius: 18px; border: 1px solid var(--vidrio-borde); background: rgba(255,255,255,.03); }
+    .kit-titulo { font-family: var(--titulo); font-size: .72rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--plata); }
+    .kit-lista { display: flex; flex-wrap: wrap; gap: 10px; }
+    .kit-lista > span { display: inline-flex; align-items: center; gap: 9px; padding: 6px 14px 6px 6px; border-radius: 999px; border: 1px solid var(--vidrio-borde); color: #DCE4EE; font-size: .88rem; font-weight: 500; }
+    .kit-lista i { font-style: normal; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; background: var(--profundo); color: var(--c); font-family: var(--titulo); font-weight: 800; font-size: .72rem; border: 1px solid rgba(255,255,255,.08); }
+
+
+    /* Campaña Fidélitas */
+    .campana { margin-top: 22px; display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(24px, 4vw, 48px); align-items: center; padding: clamp(26px, 3.5vw, 40px); border-radius: 26px; background: var(--hielo); border: 1px solid var(--linea); }
+    .campana-texto { min-width: 0; }
+    .campana .tipo { color: #A0718A; }
+    .campana h3 { font-family: var(--titulo); font-weight: 700; font-size: clamp(1.35rem, 2.3vw, 1.75rem); line-height: 1.2; margin: 8px 0 12px; text-wrap: balance; }
+    .campana p { color: var(--tinta-2); font-size: .98rem; }
+    .herramientas.claro > span { border-color: var(--linea); color: var(--tinta-2); background: var(--blanco); }
+    .campana-fotos { display: grid; grid-template-columns: 1.3fr 1fr; grid-template-rows: 1fr 1fr; gap: 10px; }
+    .campana-fotos img { width: 100%; height: 100%; object-fit: cover; border-radius: 14px; min-height: 0; }
+    .campana-fotos img:first-child { grid-row: 1 / 3; aspect-ratio: 3 / 4; object-position: 40% center; }
+    .campana-fotos img:nth-child(2), .campana-fotos img:nth-child(3) { aspect-ratio: 4 / 3; }
+    .campana-fotos img:nth-child(3) { object-position: center 60%; }
+    @media (max-width: 900px) { .campana { grid-template-columns: 1fr; } }
+
+
+    /* Certificaciones */
+    #certificaciones { background: var(--blanco); }
+    .grupos-cert { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; align-items: start; }
+    .grupo-cert { border: 1px solid var(--linea); border-radius: var(--radio); padding: 24px 26px; background: var(--hielo); }
+    .grupo-cert h3 { display: flex; align-items: center; gap: 12px; font-family: var(--titulo); font-weight: 700; font-size: 1.08rem; margin-bottom: 8px; }
+    .grupo-cert h3 i { margin-left: auto; font-style: normal; font-size: .76rem; font-weight: 700; color: var(--digital); background: rgba(50,143,255,.1); border-radius: 999px; padding: 2px 10px; }
+    .icono-min { flex: none; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: rgba(50,143,255,.1); color: var(--digital); }
+    .icono-min svg { width: 19px; height: 19px; }
+    .grupo-cert ul { list-style: none; }
+    .grupo-cert li { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--linea); }
+    .grupo-cert li:last-child { border-bottom: 0; padding-bottom: 2px; }
+    .grupo-cert li > div { min-width: 0; }
+    .grupo-cert li b { display: block; font-size: .95rem; font-weight: 600; line-height: 1.35; color: var(--tinta); }
+    .grupo-cert li > div > span { font-size: .8rem; color: var(--tinta-2); }
+    .grupo-cert em { flex: none; font-style: normal; font-family: var(--titulo); font-size: .64rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 3px 9px; border-radius: 6px; white-space: nowrap; }
+    .k-ver { background: rgba(74,222,155,.16); color: #1A7F52; }
+    .k-cert { background: rgba(50,143,255,.12); color: #1F6FD1; }
+    .k-curso { background: rgba(170,183,200,.25); color: #56657A; }
+    .k-part { background: rgba(197,155,175,.2); color: #8F5F75; }
+    .resumen-cert { display: flex; align-items: center; gap: 14px; margin-top: 16px; padding: 14px 16px; border-radius: 14px; background: var(--hielo); text-decoration: none; color: var(--tinta); transition: background .3s; }
+    .resumen-cert:hover { background: #E8EFF8; }
+    .resumen-cert b { font-family: var(--titulo); font-size: 1.8rem; font-weight: 800; color: var(--digital); line-height: 1; }
+    .resumen-cert > span { font-size: .86rem; color: var(--tinta-2); line-height: 1.4; }
+    .resumen-cert svg { flex: none; width: 18px; height: 18px; margin-left: auto; color: var(--digital); }
+    .hito-foto { display: grid; grid-template-columns: 1fr 120px; gap: 20px; align-items: start; }
+    .hito-foto > div { min-width: 0; }
+    .hito-foto img { width: 120px; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 14px; border: 1px solid var(--linea); margin-top: 6px; }
+    @media (max-width: 900px) { .grupos-cert { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .hito-foto { grid-template-columns: 1fr; } .grupo-cert li { flex-wrap: wrap; gap: 6px; } }
+
+
+    /* Reel destacado en teléfono */
+    .destacado { position: relative; grid-column: 1 / -1; display: grid; grid-template-columns: 1fr auto; gap: clamp(24px, 5vw, 60px); align-items: center; padding: clamp(26px, 3.5vw, 40px); border-radius: 24px; border: 1px solid rgba(197,155,175,.35); background: radial-gradient(500px 300px at 85% 50%, rgba(197,155,175,.16), transparent 70%), rgba(255,255,255,.02); }
+    .destacado-texto { min-width: 0; max-width: 460px; }
+    .destacado .tipo { color: #E2C6D3; }
+    .destacado h3 { font-family: var(--titulo); font-weight: 700; font-size: clamp(1.4rem, 2.4vw, 1.9rem); color: var(--hielo); line-height: 1.2; margin: 8px 0 12px; text-wrap: balance; }
+    .destacado p { color: #C9D3E0; }
+    .telefono { position: relative; display: block; width: 230px; max-width: 100%; aspect-ratio: 9 / 18.5; border-radius: 38px; padding: 9px; background: linear-gradient(145deg, #2A3B57, #0E1A2D); box-shadow: 0 0 0 1.5px rgba(170,183,200,.25), 0 40px 70px -30px rgba(0,0,0,.8); text-decoration: none; transition: transform .5s cubic-bezier(.2,.7,.2,1); transform: rotate(-3deg); }
+    .telefono:hover { transform: rotate(0) translateY(-6px); }
+    .telefono-isla { position: absolute; top: 18px; left: 50%; transform: translateX(-50%); width: 70px; height: 20px; border-radius: 99px; background: #05080F; z-index: 3; }
+    .telefono-pantalla { position: relative; display: flex; flex-direction: column; justify-content: space-between; height: 100%; border-radius: 30px; overflow: hidden; color: #fff;
+      background: radial-gradient(circle at 30% 20%, rgba(226,198,211,.9), transparent 55%), radial-gradient(circle at 80% 75%, rgba(50,143,255,.7), transparent 55%), linear-gradient(160deg, #C59BAF, #183153 75%); }
+    .portada-reel { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .reel-barra, .reel-pie, .reel-play { position: relative; z-index: 2; }
+    .reel-barra { display: flex; justify-content: space-between; align-items: center; padding: 42px 16px 0; font-family: var(--titulo); font-size: .8rem; }
+    .reel-barra span { font-weight: 600; opacity: .9; }
+    .reel-play { align-self: center; display: grid; place-items: center; width: 66px; height: 66px; border-radius: 50%; background: rgba(255,255,255,.22); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border: 1.5px solid rgba(255,255,255,.6); transition: transform .4s; }
+    .reel-play svg { width: 26px; height: 26px; margin-left: 3px; }
+    .telefono:hover .reel-play { transform: scale(1.1); }
+    .reel-pie { display: grid; gap: 4px; padding: 0 16px 20px; background: linear-gradient(transparent, rgba(9,20,38,.6)); padding-top: 30px; }
+    .reel-etiqueta { display: inline-flex; align-items: center; gap: 7px; font-family: var(--titulo); font-weight: 700; font-size: .92rem; }
+    .reel-etiqueta svg { width: 17px; height: 17px; }
+    .reel-credito { font-size: .74rem; opacity: .85; }
+    @media (max-width: 760px) { .destacado { grid-template-columns: 1fr; justify-items: center; text-align: center; } .destacado .enlace-proyecto { align-self: center; } .telefono { width: 210px; } }
+    @media (prefers-reduced-motion: reduce) { .telefono { transform: none; } }
+
+
+    /* ======== HABILIDADES: radar + pestañas ======== */
+    .habilidades { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 22px; align-items: stretch; }
+    .radar-card { border: 1px solid var(--linea); border-radius: var(--radio); background: var(--hielo); padding: 18px 18px 14px; display: flex; flex-direction: column; justify-content: center; }
+    #radar { width: 100%; height: auto; max-width: 470px; margin: 0 auto; overflow: visible; }
+    #radar .anillo { fill: none; stroke: #D7E0EB; stroke-width: 1; }
+    #radar .eje { stroke: #D7E0EB; stroke-width: 1; }
+    #radar .area { fill: rgba(50,143,255,.16); stroke: var(--digital); stroke-width: 2; stroke-linejoin: round; transform-origin: 200px 190px; }
+    #radar.animar .area { animation: crecer 1.2s cubic-bezier(.2,.7,.2,1) both; }
+    @keyframes crecer { from { transform: scale(.1); opacity: .2; } to { transform: none; opacity: 1; } }
+    #radar .punto { fill: var(--blanco); stroke: var(--digital); stroke-width: 2; transition: r .25s; }
+    #radar .grupo-eje { cursor: pointer; }
+    #radar .grupo-eje .hit { fill: transparent; }
+    #radar .etiqueta { font-family: var(--titulo); font-size: 13px; font-weight: 600; fill: var(--tinta-2); transition: fill .25s; }
+    #radar .grupo-eje:hover .etiqueta, #radar .grupo-eje.activo .etiqueta { fill: var(--digital); }
+    #radar .grupo-eje.activo .punto { fill: var(--digital); r: 7; }
+    #radar .nivel-txt { font-family: var(--titulo); font-size: 11px; fill: var(--plata); }
+    #radar .grupo-eje:focus-visible { outline: none; }
+    #radar .grupo-eje:focus-visible .etiqueta { fill: var(--digital); text-decoration: underline; }
+    .radar-nota { text-align: center; font-size: .8rem; color: var(--tinta-2); margin-top: 6px; }
+    .habilidad-panel { border: 1px solid var(--linea); border-radius: var(--radio); background: var(--blanco); padding: 22px; display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tabs button { border: 1px solid var(--linea); background: var(--hielo); color: var(--tinta-2); font: 600 .84rem var(--titulo); padding: 8px 14px; border-radius: 999px; cursor: pointer; transition: background .25s, color .25s, border-color .25s; }
+    .tabs button:hover { border-color: var(--digital); color: var(--tinta); }
+    .tabs button[aria-selected="true"] { background: var(--noche); color: var(--hielo); border-color: var(--noche); }
+    .panel { animation: aparecerPanel .45s ease both; }
+    @keyframes aparecerPanel { from { transform: translateY(6px); } to { transform: none; } }
+    .panel h3 { font-family: var(--titulo); font-weight: 700; font-size: 1.35rem; line-height: 1.25; }
+    .panel > p { color: var(--tinta-2); margin-top: 6px; font-size: .97rem; }
+    .medidor { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+    .medidor .barras { display: flex; gap: 5px; }
+    .medidor .barras i { width: 30px; height: 8px; border-radius: 4px; background: #E3E9F1; }
+    .medidor .barras i.lleno { background: var(--digital); animation: llenar .5s ease both; }
+    @keyframes llenar { from { transform: scaleX(0); transform-origin: left; } to { transform: none; } }
+    .medidor span { font-size: .82rem; color: var(--tinta-2); font-weight: 500; }
+    .herr { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 18px; }
+    .herr li { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; background: var(--hielo); font-size: .9rem; font-weight: 500; }
+
+    /* ======== DEMO DE DATOS ======== */
+    #demo { background: var(--hielo); }
+    .tablero { border-radius: 24px; background: var(--blanco); border: 1px solid var(--linea); box-shadow: var(--sombra); padding: clamp(18px, 3vw, 30px); display: grid; gap: 20px; }
+    .tablero-barra { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; }
+    .filtros { display: flex; flex-wrap: wrap; gap: 8px; }
+    .filtros button { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--linea); background: var(--blanco); color: var(--tinta-2); font: 600 .84rem var(--titulo); padding: 8px 14px; border-radius: 999px; cursor: pointer; transition: background .25s, color .25s, border-color .25s; }
+    .filtros button:hover { border-color: var(--digital); color: var(--tinta); }
+    .filtros button[aria-pressed="true"] { background: var(--noche); border-color: var(--noche); color: var(--hielo); }
+    .filtros button i { font-style: normal; display: inline-block; width: 10px; height: 10px; border-radius: 3px; }
+    .filtros-cert { margin-bottom: 22px; }
+    .filtros-cert button i { width: auto; height: auto; font-size: .72rem; padding: 1px 7px; border-radius: 99px; background: rgba(50,143,255,.14); color: var(--digital); }
+    .filtros-cert button[aria-pressed="true"] i { background: rgba(255,255,255,.15); color: var(--hielo); }
+    .filtros-cert .f-ver { border-color: rgba(74,222,155,.5); }
+    .aviso-datos { font-size: .74rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #8F5F75; background: rgba(197,155,175,.18); padding: 5px 10px; border-radius: 8px; font-family: var(--titulo); }
+    .kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .kpi { border-radius: 16px; background: var(--hielo); padding: 16px 18px; }
+    .kpi small { display: block; font-size: .78rem; color: var(--tinta-2); font-weight: 500; }
+    .kpi b { display: block; font-family: var(--titulo); font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 800; line-height: 1.15; margin-top: 4px; font-variant-numeric: tabular-nums; }
+    .kpi > span { font-size: .78rem; color: var(--tinta-2); }
+    .kpi .sube { color: #1A7F52; font-weight: 600; }
+    .grafico-caja { position: relative; }
+    .grafico-cabeza { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .grafico-cabeza h3 { font-family: var(--titulo); font-size: 1rem; font-weight: 700; }
+    .leyenda-graf { display: flex; flex-wrap: wrap; gap: 14px; font-size: .82rem; color: var(--tinta-2); }
+    .leyenda-graf span { display: inline-flex; align-items: center; gap: 6px; }
+    .leyenda-graf i { width: 10px; height: 10px; border-radius: 3px; }
+    .grafico svg { width: 100%; height: auto; display: block; overflow: visible; }
+    .grafico .grid line { stroke: #E9EEF4; }
+    .grafico .grid text, .grafico .eje-x text { font-family: var(--texto); font-size: 12px; fill: var(--tinta-2); font-variant-numeric: tabular-nums; }
+    .grafico .barra { transition: opacity .25s; }
+    .grafico .col:hover .barra, .grafico .col:focus .barra { opacity: .85; }
+    .grafico .col { cursor: pointer; outline: none; }
+    .grafico .col .fondo { fill: transparent; }
+    .grafico .col:hover .fondo, .grafico .col:focus-visible .fondo { fill: rgba(50,143,255,.06); }
+    .grafico .total { font-family: var(--titulo); font-size: 12px; font-weight: 700; fill: var(--tinta); font-variant-numeric: tabular-nums; }
+    .grafico.animar .barra { animation: subirBarra .8s cubic-bezier(.2,.7,.2,1) both; transform-box: fill-box; transform-origin: bottom; }
+    @keyframes subirBarra { from { transform: scaleY(0); } to { transform: none; } }
+    .tooltip { position: absolute; pointer-events: none; z-index: 5; min-width: 150px; background: var(--noche); color: var(--hielo); border-radius: 12px; padding: 10px 12px; font-size: .82rem; box-shadow: 0 12px 30px -10px rgba(9,20,38,.5); transform: translate(-50%, calc(-100% - 10px)); }
+    .tooltip b { display: block; font-family: var(--titulo); margin-bottom: 4px; }
+    .tooltip div { display: flex; justify-content: space-between; gap: 14px; font-variant-numeric: tabular-nums; }
+    .tooltip div span { display: inline-flex; align-items: center; gap: 6px; color: #C9D3E0; }
+    .tooltip div i { width: 8px; height: 8px; border-radius: 2px; }
+    .hallazgo { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border-radius: 14px; background: rgba(50,143,255,.07); color: var(--tinta); font-size: .95rem; }
+    .hallazgo::before { content: "💡"; }
+    .tabla-datos summary { cursor: pointer; font: 600 .86rem var(--titulo); color: var(--digital); }
+    .tabla-scroll { overflow-x: auto; margin-top: 10px; }
+    .tabla-datos table { border-collapse: collapse; width: 100%; font-size: .86rem; font-variant-numeric: tabular-nums; }
+    .tabla-datos th, .tabla-datos td { padding: 8px 10px; border-bottom: 1px solid var(--linea); text-align: right; }
+    .tabla-datos th:first-child, .tabla-datos td:first-child { text-align: left; }
+    .tabla-datos th { font-family: var(--titulo); color: var(--tinta-2); font-weight: 600; }
+
+    /* ======== LÍNEA DE TIEMPO VIVA ======== */
+    .linea-tiempo.viva::before { background: var(--linea); }
+    .riel-vivo { position: absolute; left: 7px; top: 10px; bottom: 10px; width: 1.5px; overflow: hidden; }
+    .riel-vivo i { display: block; width: 100%; height: 0; background: linear-gradient(var(--rosa), var(--digital)); transition: height .15s linear; }
+    .viva .hito::before { transition: background .4s, border-color .4s, box-shadow .4s, transform .4s; border-color: #C8D3E1; }
+    .viva .hito.encendido::before { border-color: var(--digital); background: var(--digital); box-shadow: 0 0 0 6px rgba(50,143,255,.15); }
+    .viva .hito h3, .viva .hito .mini-texto { transition: color .4s; }
+    .viva .hito-origen::before { border-color: var(--rosa) !important; }
+    .viva .hito-origen.encendido::before { background: var(--rosa); box-shadow: 0 0 0 6px rgba(197,155,175,.2); }
+    .viva .hito-origen .fecha { color: #A0718A; }
+    .viva .hito-mini::before { width: 10px; height: 10px; left: -31px; top: 9px; }
+    .mini-texto { font-family: var(--titulo); font-weight: 600; font-size: .98rem; color: var(--tinta); margin-top: 2px; }
+    .viva .hito-actual .fecha::after { content: " ● EN CURSO"; color: #1A7F52; font-size: .68rem; letter-spacing: .1em; }
+    html[data-lang="en"] .viva .hito-actual .fecha::after { content: " ● CURRENT"; }
+    .viva .hito-meta::before { border-style: dashed; border-color: var(--digital); }
+    .viva .hito-meta { padding: 18px 20px; border-radius: 16px; border: 1px dashed rgba(50,143,255,.45); background: rgba(50,143,255,.04); }
+    .viva .hito-meta::before { left: -34px; top: 25px; }
+
+    .cert-oculto { display: none !important; }
+    .grupo-cert { animation: aparecerPanel .4s ease both; }
+
+    @media (max-width: 900px) { .habilidades { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .kpis { grid-template-columns: 1fr; } .herr { grid-template-columns: 1fr; } .medidor .barras i { width: 22px; } }
+    @media (prefers-reduced-motion: reduce) { #radar.animar .area, .grafico.animar .barra { animation: none; } }
+
+
+    /* ======== Mejoras de diseño ======== */
+    .inicio h1.nombre { font-family: var(--titulo); font-weight: 800; font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1.02; letter-spacing: -.035em; color: var(--hielo); background: linear-gradient(100deg, var(--hielo) 35%, #A9CCFF 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .inicio h1.nombre .paz { -webkit-text-fill-color: transparent; }
+    .tesis { margin-top: 18px; font-family: var(--titulo); font-weight: 300; font-size: clamp(1.3rem, 2.4vw, 1.75rem); line-height: 1.3; color: #DCE4EE; letter-spacing: -.01em; }
+    .tesis strong { font-weight: 700; color: var(--hielo); }
+    .inicio .propuesta { margin-top: 18px; }
+    #proyectos { border-top: 1px solid var(--vidrio-borde); background: linear-gradient(180deg, #0C1A30, var(--noche) 40%); }
+    #competencias { background: var(--blanco); }
+    #proceso.pegado { background: var(--blanco); padding-top: 0; }
+    #experiencia { background: var(--hielo); }
+    #certificaciones { background: var(--blanco); }
+    #sobre-mi { background: var(--hielo); }
+    #mas-alla { background: var(--blanco); }
+    .cv-flotante { display: none; }
+    @media (max-width: 760px) {
+      .cv-flotante { position: fixed; z-index: 45; left: 50%; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 140%); display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 999px; background: var(--digital); color: var(--blanco); font: 700 .92rem var(--titulo); text-decoration: none; box-shadow: 0 14px 30px -10px rgba(50,143,255,.8); transition: transform .4s cubic-bezier(.2,.7,.2,1); }
+      .cv-flotante svg { width: 17px; height: 17px; }
+      .cv-flotante.ver { transform: translate(-50%, 0); }
+    }
+
+
+    .correo-hero { margin-top: 22px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: .92rem; color: var(--plata); }
+    .correo-hero svg { width: 18px; height: 18px; color: var(--digital); flex: none; }
+    .correo-hero a { color: var(--hielo); font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(50,143,255,.6); }
+    .correo-hero a:hover { color: #8EC0FF; }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+    @media (max-width: 1040px) {
+      .competencias { grid-template-columns: repeat(2, 1fr); }
+      .menu { gap: 22px; }
+      .marca-nombre small { display: none; }
+    }
+    @media (max-width: 900px) {
+      .inicio-grid, .sobre, .exp-grid { grid-template-columns: 1fr; }
+      .retrato { width: min(100%, 360px); margin-top: 10px; }
+      .tarjeta-vidrio { left: 50%; transform: translateX(-50%); bottom: -24px; white-space: nowrap; max-width: none; }
+      .barra-datos { grid-template-columns: repeat(3, 1fr); }
+      .barra-datos .btn { grid-column: 1 / -1; margin: 10px; justify-content: center; }
+      .dato:nth-child(3) { border-right: 0; }
+      .proyectos, .mas-alla { grid-template-columns: 1fr; }
+      .sobre-foto { max-width: 400px; }
+      .lateral { position: static; }
+    }
+    @media (max-width: 820px) {
+      .hamburguesa { display: block; }
+      .menu, .nav-cta { display: none; }
+      .menu.abierto {
+        display: flex; position: fixed; inset: 0; flex-direction: column; justify-content: center; gap: 26px;
+        background: var(--noche); z-index: 41;
+      }
+      .menu.abierto a { font-family: var(--titulo); font-size: 1.6rem; font-weight: 600; color: var(--hielo); }
+      .hamburguesa.abierto span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .hamburguesa.abierto span:nth-child(2) { opacity: 0; }
+      .hamburguesa.abierto span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+    @media (max-width: 600px) {
+      .competencias { grid-template-columns: 1fr; }
+      .barra-datos { grid-template-columns: 1fr; }
+      .dato { border-right: 0; border-bottom: 1px solid var(--vidrio-borde); display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 16px; }
+      .dato span { text-align: right; }
+      .verbos i { margin: 0 6px; }
+      .verbos { letter-spacing: .14em; font-size: .74rem; }
+      .ficha div { grid-template-columns: 1fr; gap: 2px; }
+      .marca-nombre { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== MENÚ ===================== -->
+  <nav id="nav" aria-label="Principal">
+    <a href="#inicio" class="marca" aria-label="María Paz García Umaña, inicio">
+      <span class="monograma">MPG</span>
+      <span class="marca-nombre">María Paz García Umaña<small>Ingeniería en Sistemas</small></span>
+    </a>
+    <ul class="menu" id="menu">
+      <li><a href="#proyectos"><span class="es">Proyectos</span><span class="en">Projects</span></a></li>
+      <li><a href="#competencias"><span class="es">Habilidades</span><span class="en">Skills</span></a></li>
+      <li><a href="#experiencia"><span class="es">Trayectoria</span><span class="en">Experience</span></a></li>
+      <li><a href="#contenido-ia"><span class="es">Contenido e IA</span><span class="en">Content &amp; AI</span></a></li>
+      <li><a href="#sobre-mi"><span class="es">Sobre mí</span><span class="en">About</span></a></li>
+    </ul>
+    <div class="acciones-nav">
+      <div class="idioma" role="group" aria-label="Idioma / Language">
+        <button type="button" data-set-lang="es" aria-pressed="true">ES</button>
+        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a href="#contacto" class="btn btn-fantasma nav-cta"><span class="es">Conversemos</span><span class="en">Let's talk</span></a>
+      <button class="hamburguesa" id="hamburguesa" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main>
+  <!-- ===================== INICIO ===================== -->
+  <header class="inicio oscuro" id="inicio">
+    <!-- Red sutil de nodos: inspirada en datos y sistemas -->
+    <svg class="red" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g class="flota">
+        <line x1="80" y1="160" x2="260" y2="90"/><line x1="260" y1="90" x2="420" y2="200"/><line x1="80" y1="160" x2="190" y2="330"/>
+        <line x1="190" y1="330" x2="420" y2="200"/><line x1="900" y1="620" x2="1080" y2="540"/><line x1="1080" y1="540" x2="1150" y2="700"/>
+        <circle cx="80" cy="160" r="2.5"/><circle cx="260" cy="90" r="2"/><circle cx="420" cy="200" r="3"/><circle cx="190" cy="330" r="2"/>
+        <circle cx="900" cy="620" r="2.5"/><circle cx="1080" cy="540" r="3"/><circle cx="1150" cy="700" r="2"/>
+      </g>
+      <g class="flota-2">
+        <line x1="1000" y1="80" x2="1140" y2="170"/><line x1="1140" y1="170" x2="1060" y2="300"/><line x1="1000" y1="80" x2="1060" y2="300"/>
+        <line x1="120" y1="640" x2="300" y2="700"/><line x1="300" y1="700" x2="380" y2="580"/>
+        <circle cx="1000" cy="80" r="2"/><circle cx="1140" cy="170" r="2.5"/><circle cx="1060" cy="300" r="2"/>
+        <circle cx="120" cy="640" r="2"/><circle cx="300" cy="700" r="2.5"/><circle cx="380" cy="580" r="2"/>
+      </g>
+    </svg>
+
+    <div class="inicio-grid">
+      <div class="aparece">
+        <p class="linea-intro"><span><span class="es">Analista de datos y sistemas · Junior</span><span class="en">Data &amp; systems analyst · Junior</span></span></p>
+        <h1 class="nombre">María <span class="paz">Paz</span><br>García Umaña</h1>
+        <p class="tesis"><span class="es">Tecnología aplicada a <strong>procesos reales.</strong></span><span class="en">Technology applied to <strong>real processes.</strong></span></p>
+        <p class="propuesta">
+          <span class="es">Estudiante avanzada de Ingeniería en Sistemas de Computación. Me interesa analizar problemas, identificar oportunidades de mejora y transformar ideas en soluciones prácticas.</span>
+          <span class="en">Advanced Computer Systems Engineering student. I enjoy analyzing problems, spotting opportunities for improvement and turning ideas into practical solutions.</span>
+        </p>
+        <div class="botones">
+          <a href="#proyectos" class="btn btn-primario"><span class="es">Ver proyectos</span><span class="en">View projects</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#cv" class="btn btn-fantasma"><span class="es">Descargar CV</span><span class="en">Download résumé</span></a>
+        </div>
+        <p class="correo-hero"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <span class="es">¿Necesitás ayuda con un proyecto? Escribime a</span><span class="en">Need help with a project? Write to me at</span>
+          <a href="mailto:maripazu03@gmail.com">maripazu03@gmail.com</a></p>
+      </div>
+
+      <div class="retrato aparece">
+        <div class="retrato-marco">
+          <img src="foto-perfil.jpg" alt="Retrato de María Paz García Umaña" width="900" height="900">
+        </div>
+        <div class="tarjeta-vidrio">
+          <span class="punto"></span>
+          <div><b><span class="es">Disponible</span><span class="en">Available</span></b>
+            <span class="es">Prácticas y puestos junior en tecnología</span><span class="en">Internships &amp; junior tech roles</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="barra-datos aparece">
+      <div class="dato"><b><em data-contar="6">6</em>+</b><span class="es">años de experiencia laboral</span><span class="en">years of work experience</span></div>
+      <div class="dato"><b>2.º</b><span class="es">lugar · finalistas Reto Marte</span><span class="en">place · Reto Marte finalists</span></div>
+      <div class="dato"><b>2027</b><span class="es">graduación prevista</span><span class="en">expected graduation</span></div>
+      <a href="#contacto" class="btn btn-primario"><span class="es">Conversemos</span><span class="en">Let's talk</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <p class="verbos aparece">
+      <span class="es">Analizo<i>·</i>Organizo<i>·</i>Creo<i>·</i>Resuelvo</span>
+      <span class="en">Analyze<i>·</i>Organize<i>·</i>Create<i>·</i>Solve</span>
+    </p>
+    <div class="franja" aria-label="Herramientas que uso">
+      <div class="franja-pista"><span>Power BI</span><span>IA generativa</span><span>SQL</span><span>Oracle</span><span>Excel</span><span>Java</span><span>C#</span><span>Python</span><span>Git · GitHub</span><span>Cisco</span><span>CRM</span><span>Scrum</span><span>Design Thinking</span><span>Data Warehouse</span><span>HTML · CSS · JS</span><span aria-hidden="true">Power BI</span><span aria-hidden="true">IA generativa</span><span aria-hidden="true">SQL</span><span aria-hidden="true">Oracle</span><span aria-hidden="true">Excel</span><span aria-hidden="true">Java</span><span aria-hidden="true">C#</span><span aria-hidden="true">Python</span><span aria-hidden="true">Git · GitHub</span><span aria-hidden="true">Cisco</span><span aria-hidden="true">CRM</span><span aria-hidden="true">Scrum</span><span aria-hidden="true">Design Thinking</span><span aria-hidden="true">Data Warehouse</span><span aria-hidden="true">HTML · CSS · JS</span></div>
+    </div>
+  </header>
+
+  <!-- ===================== PROYECTOS ===================== -->
+  <section id="proyectos" class="oscuro">
+    <div class="contenedor">
+      <div class="cabeza">
+        <p class="ojo aparece"><span class="es">Proyectos</span><span class="en">Projects</span></p>
+        <h2 class="aparece"><span class="es">Problemas que he explorado <span class="suave">y lo que aprendí</span></span><span class="en">Problems I've explored <span class="suave">and what I learned</span></span></h2>
+        <p class="bajada aparece"><span class="es">Una selección de problemas que he explorado, soluciones que he construido y aprendizajes que me llevo de cada proyecto.</span><span class="en">A selection of problems I've explored, solutions I've built and lessons I take from each project.</span></p>
+      </div>
+
+      <!-- PLANTILLA: para agregar un proyecto, copiá un <article class="proyecto"> completo y cambiá el texto. -->
+      <div class="proyectos">
+        <article class="proyecto estrella aparece">
+          <div class="estrella-texto">
+            <div class="proyecto-cabeza">
+              <div><span class="tipo"><span class="es">Reto Marte 2025 · Universidad Fidélitas</span><span class="en">Reto Marte 2025 · Universidad Fidélitas</span></span><h3><span class="es">Equipo Phignix: energía para el planeta rojo</span><span class="en">Team Phignix: energy for the red planet</span></h3></div>
+              <div class="logro"><b>2.º</b><span class="es">LUGAR · FINALISTAS</span><span class="en">PLACE · FINALISTS</span></div>
+            </div>
+            <dl class="ficha">
+              <div><dt><span class="es">Reto</span><span class="en">Challenge</span></dt><dd><span class="es">Proponer soluciones viables para la gestión energética en Marte, en un equipo multidisciplinario de sistemas, mecatrónica y electrónica.</span><span class="en">Propose viable solutions for energy management on Mars, in a multidisciplinary team of systems, mechatronics and electronics students.</span></dd></div>
+              <div><dt><span class="es">Lo que creamos</span><span class="en">What we built</span></dt><dd><span class="es">Una simulación inmersiva de Marte en realidad virtual, prototipos con Arduino, placas Peltier y sistemas de telecomunicaciones, y un sitio web para presentar el proyecto.</span><span class="en">An immersive Mars simulation in virtual reality, prototypes with Arduino, Peltier modules and telecommunication systems, and a website to present the project.</span></dd></div>
+              <div><dt><span class="es">Resultado</span><span class="en">Result</span></dt><dd><span class="es">7.º lugar en mi primera participación; en la segunda llegamos a la final y obtuvimos el 2.º lugar.</span><span class="en">7th place in my first participation; in the second we reached the final and placed 2nd.</span></dd></div>
+              <div><dt><span class="es">Aprendizaje</span><span class="en">Takeaway</span></dt><dd><span class="es">Design Thinking aplicado, trabajo en equipo y volver más fuerte. Nuestro lema: «De las cenizas a las estrellas».</span><span class="en">Applied Design Thinking, teamwork and coming back stronger. Our motto: “From the ashes to the stars.”</span></dd></div>
+            </dl>
+            <div class="herramientas"><span><span class="es">Realidad virtual</span><span class="en">Virtual reality</span></span><span>Arduino</span><span><span class="es">Placas Peltier</span><span class="en">Peltier modules</span></span><span><span class="es">Telecomunicaciones</span><span class="en">Telecom</span></span><span><span class="es">Sitio web</span><span class="en">Website</span></span><span>Design Thinking</span><span><span class="es">Trabajo en equipo</span><span class="en">Teamwork</span></span></div>
+            <a class="enlace-proyecto" href="https://lnkd.in/dtHh7b6z" target="_blank" rel="noopener"><span class="es">Explorar la simulación de Marte en VR</span><span class="en">Explore the Mars VR simulation</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+          </div>
+          <div class="estrella-fotos">
+            <img src="reto-marte-1.jpg" alt="Equipo Phignix en la feria del Reto Marte, Universidad Fidélitas" width="1100" height="825" loading="lazy">
+            <img src="reto-marte-2.jpg" alt="Equipo Phignix con sus laptops en la terraza de la universidad" width="1100" height="619" loading="lazy">
+            <img src="reto-marte-3.jpg" alt="Sitio web del proyecto Phignix mostrado en dos tablets durante el Reto Marte" width="1100" height="825" loading="lazy">
+          </div>
+        </article>
+
+        <article class="proyecto aparece">
+          <div class="proyecto-cabeza">
+            <div><span class="tipo"><span class="es">Colaboración práctica</span><span class="en">Hands-on collaboration</span></span><h3><span class="es">CyberBalance · Sitio web y CRM</span><span class="en">CyberBalance · Website &amp; CRM</span></h3></div>
+          </div>
+          <dl class="ficha">
+            <div><dt><span class="es">Contexto</span><span class="en">Context</span></dt><dd><span class="es">Una empresa que necesitaba mantener su sitio web y su información de clientes al día.</span><span class="en">A company that needed to keep its website and customer data up to date.</span></dd></div>
+            <div><dt><span class="es">Mi rol</span><span class="en">My role</span></dt><dd><span class="es">Apoyo en mantenimiento básico del sitio, gestión del CRM y organización de registros de clientes.</span><span class="en">Supported basic website maintenance, CRM management and customer record organization.</span></dd></div>
+          </dl>
+          <div class="herramientas"><span>Web</span><span>CRM</span><span><span class="es">Gestión de datos</span><span class="en">Data management</span></span></div>
+        </article>
+
+        <article class="proyecto aparece">
+          <div class="proyecto-cabeza">
+            <div><span class="tipo"><span class="es">Proyecto académico</span><span class="en">Academic project</span></span><h3>Data Warehouse</h3></div>
+          </div>
+          <dl class="ficha">
+            <div><dt><span class="es">Contexto</span><span class="en">Context</span></dt><dd><span class="es">Curso de la carrera orientado a inteligencia de negocios.</span><span class="en">University course focused on business intelligence.</span></dd></div>
+            <div><dt><span class="es">Mi rol</span><span class="en">My role</span></dt><dd><span class="es">Modelado dimensional e integración de datos para análisis.</span><span class="en">Dimensional modeling and data integration for analysis.</span></dd></div>
+          </dl>
+          <div class="herramientas"><span>SQL</span><span><span class="es">Modelo dimensional</span><span class="en">Dimensional model</span></span><span>ETL</span></div>
+        </article>
+
+        <article class="proyecto aparece">
+          <div class="proyecto-cabeza">
+            <div><span class="tipo"><span class="es">Proyecto personal</span><span class="en">Personal project</span></span><h3><span class="es">Este portafolio</span><span class="en">This portfolio</span></h3></div>
+          </div>
+          <dl class="ficha">
+            <div><dt><span class="es">Reto</span><span class="en">Challenge</span></dt><dd><span class="es">Mostrar quién soy y lo que hago en una sola página, clara para reclutadores y fiel a mi marca.</span><span class="en">Show who I am and what I do on a single page, clear for recruiters and true to my brand.</span></dd></div>
+            <div><dt><span class="es">Decisiones</span><span class="en">Decisions</span></dt><dd><span class="es">Sitio bilingüe, adaptable a celular, accesible y publicado gratis con GitHub Pages.</span><span class="en">Bilingual, mobile-ready, accessible site published for free with GitHub Pages.</span></dd></div>
+          </dl>
+          <div class="herramientas"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>GitHub Pages</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COMPETENCIAS ===================== -->
+  <section id="competencias">
+    <div class="contenedor">
+      <div class="cabeza cabeza-doble">
+        <div>
+          <p class="ojo aparece"><span class="es">Competencias</span><span class="en">Skills</span></p>
+          <h2 class="aparece"><span class="es">Lo que sé hacer <span class="suave">y lo que sigo aprendiendo</span></span><span class="en">What I can do <span class="suave">and what I keep learning</span></span></h2>
+          <p class="bajada aparece"><span class="es">Herramientas técnicas, pensamiento analítico y habilidades humanas que sigo desarrollando en proyectos y experiencias reales.</span><span class="en">Technical tools, analytical thinking and people skills I keep developing through real projects and experiences.</span></p>
+        </div>
+        <div class="terminal aparece" role="img" aria-label="Terminal con el perfil de María Paz">
+          <div class="terminal-barra"><i></i><i></i><i></i><span>~/maria-paz</span><b><span class="es">en línea</span><span class="en">online</span></b></div>
+<pre><span class="p">$</span> <span class="c">whoami</span>
+<span class="r">maria-paz-garcia-umana</span>
+<span class="p">$</span> <span class="c">cat enfoque.txt</span>
+<span class="es">análisis · mejora de procesos · datos</span><span class="en">analysis · process improvement · data</span>
+<span class="p">$</span> <span class="c">ls stack/</span>
+sql  power-bi  excel  java  c#  git  crm  ia-generativa
+<span class="p">$</span> <span class="c">status --empleo</span>
+<span class="ok">✓</span> <span class="es">disponible: prácticas y puestos junior</span><span class="en">available: internships &amp; junior roles</span>
+<span class="p">$</span> <span class="cursor"></span></pre>
+        </div>
+      </div>
+
+      <div class="habilidades">
+        <div class="radar-card aparece">
+          <svg id="radar" viewBox="-40 0 480 380" role="img" aria-label="Mapa de habilidades de María Paz"></svg>
+          <p class="radar-nota"><span class="es">Autoevaluación de 1 a 5 · tocá un área para ver el detalle</span><span class="en">Self-assessment from 1 to 5 · tap an area for details</span></p>
+        </div>
+        <div class="habilidad-panel aparece">
+          <div class="tabs" role="tablist" id="tabs-hab" aria-label="Áreas de habilidad"></div>
+          <div class="panel" id="panel-hab" role="tabpanel" aria-live="polite"></div>
+        </div>
+      </div>
+      <div class="leyenda aparece">
+        <span><span class="origen o-trabajo"><span class="es">Trabajo</span><span class="en">Work</span></span><span class="es">usado en mi experiencia laboral</span><span class="en">used on the job</span></span>
+        <span><span class="origen o-u">U</span><span class="es">formación universitaria o certificación</span><span class="en">university training or certification</span></span>
+        <span><span class="origen o-aprendo"><span class="es">Aprendo</span><span class="en">Learning</span></span><span class="es">en desarrollo</span><span class="en">in progress</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CÓMO TRABAJO ===================== -->
+  <section id="proceso" class="pegado">
+    <div class="contenedor">
+      <div class="cabeza">
+        <p class="ojo aparece"><span class="es">Cómo trabajo</span><span class="en">How I work</span></p>
+        <h2 class="aparece"><span class="es">De un problema real <span class="suave">a una solución útil</span></span><span class="en">From a real problem <span class="suave">to a useful solution</span></span></h2>
+        <p class="bajada aparece"><span class="es">El orden que sigo cuando algo no funciona como debería, en el trabajo o en un proyecto de la universidad.</span><span class="en">The order I follow when something isn't working as it should, at work or in a university project.</span></p>
+      </div>
+      <ol class="pasos">
+        <li class="paso aparece"><h3><span class="es">Entender</span><span class="en">Understand</span></h3><p><span class="es">Escucho a las personas y defino bien qué está pasando.</span><span class="en">I listen to people and define what is really happening.</span></p></li>
+        <li class="paso aparece"><h3><span class="es">Organizar la información</span><span class="en">Organize the data</span></h3><p><span class="es">Ordeno datos y registros en Excel, CRM o bases de datos.</span><span class="en">I sort data and records in Excel, CRM or databases.</span></p></li>
+        <li class="paso aparece"><h3><span class="es">Analizar</span><span class="en">Analyze</span></h3><p><span class="es">Busco cuellos de botella y oportunidades de mejora.</span><span class="en">I look for bottlenecks and room for improvement.</span></p></li>
+        <li class="paso aparece"><h3><span class="es">Proponer y construir</span><span class="en">Propose and build</span></h3><p><span class="es">Armo reportes, controles o soluciones con la herramienta adecuada.</span><span class="en">I build reports, controls or solutions with the right tool.</span></p></li>
+        <li class="paso aparece"><h3><span class="es">Aprender y ajustar</span><span class="en">Learn and adjust</span></h3><p><span class="es">Reviso el resultado y mejoro la próxima versión.</span><span class="en">I review the result and improve the next version.</span></p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== EXPERIENCIA Y FORMACIÓN ===================== -->
+  <section id="experiencia">
+    <div class="contenedor">
+      <div class="cabeza">
+        <p class="ojo aparece"><span class="es">Experiencia y formación</span><span class="en">Experience &amp; education</span></p>
+        <h2 class="aparece"><span class="es">Mi trayectoria</span><span class="en">My journey</span></h2>
+      </div>
+      <div class="exp-grid">
+        <div class="linea-tiempo viva" id="linea-viva">
+          <span class="riel-vivo" aria-hidden="true"><i id="riel-vivo"></i></span>
+          <div class="hito hito-origen aparece">
+            <p class="fecha"><span class="es">El punto de partida</span><span class="en">The starting point</span></p>
+            <h3><span class="es">Empecé estudiando enfermería</span><span class="en">I started out studying nursing</span></h3>
+            <ul>
+              <li><span class="es">Descubrí que mi verdadera pasión estaba en la tecnología, los retos y el aprendizaje constante, y decidí cambiar de camino.</span><span class="en">I realized my real passion was technology, challenges and constant learning, and decided to change paths.</span></li>
+            </ul>
+          </div>
+          <div class="hito aparece">
+            <p class="fecha"><span class="es">Mar 2020 — Dic 2023</span><span class="en">Mar 2020 — Dec 2023</span></p>
+            <h3><span class="es">Asistente Administrativa y Mercadeo</span><span class="en">Administrative &amp; Marketing Assistant</span></h3>
+            <p class="empresa">Cielo Verde Sublimación</p>
+            <ul>
+              <li><span class="es">Gestión de clientes y pedidos en Excel, y atención por canales digitales.</span><span class="en">Managed customers and orders in Excel and handled digital channels.</span></li>
+            </ul>
+          </div>
+          <div class="hito aparece">
+            <p class="fecha"><span class="es">Ene 2024 — Actualidad</span><span class="en">Jan 2024 — Present</span></p>
+            <h3><span class="es">Colaboración con docentes</span><span class="en">Faculty collaboration</span></h3>
+            <p class="empresa">Universidad Fidélitas</p>
+            <ul>
+              <li><span class="es">Apoyo en proyectos universitarios de bases de datos y mantenimiento de servidores.</span><span class="en">Support on university database and server maintenance projects.</span></li>
+            </ul>
+          </div>
+          <div class="hito hito-mini aparece">
+            <p class="fecha">2024</p>
+            <p class="mini-texto"><span class="es">Imagen de la campaña «Dale mundo a tu ingenio» de Fidélitas.</span><span class="en">Face of Fidélitas' “Dale mundo a tu ingenio” campaign.</span></p>
+          </div>
+          <div class="hito aparece">
+            <p class="fecha">Jun 2024 — Sep 2025</p>
+            <h3><span class="es">Asistente Administrativo-Contable</span><span class="en">Administrative &amp; Accounting Assistant</span></h3>
+            <p class="empresa">Corporación Latitud Pick Up</p>
+            <ul>
+              <li><span class="es">Creé y administré bases de datos de clientes, ventas e inventario.</span><span class="en">Built and managed customer, sales and inventory databases.</span></li>
+              <li><span class="es">Reportes en Excel y Power BI para dar seguimiento a indicadores.</span><span class="en">Excel and Power BI reports to track KPIs.</span></li>
+            </ul>
+          </div>
+          <div class="hito hito-foto aparece">
+            <div>
+              <p class="fecha">2024</p>
+              <h3><span class="es">Colaboración · Proyecto VIH-CR</span><span class="en">Collaboration · VIH-CR Project</span></h3>
+              <p class="empresa">Hivos</p>
+              <ul>
+                <li><span class="es">Colaboré durante las jornadas de un proyecto que promueve la igualdad de derechos humanos de las personas con VIH y de la población LGBTIQA+.</span><span class="en">Collaborated during the sessions of a project that promotes equal human rights for people living with HIV and the LGBTIQA+ community.</span></li>
+                <li><span class="es">Una experiencia que marcó cómo quiero trabajar: con empatía, escucha y respeto.</span><span class="en">An experience that shaped how I want to work: with empathy, listening and respect.</span></li>
+              </ul>
+            </div>
+            <img src="vih-cr.jpg" alt="María Paz en el salón del evento del Proyecto VIH-CR" width="525" height="700" loading="lazy">
+          </div>
+          <div class="hito hito-mini aparece">
+            <p class="fecha">2025</p>
+            <p class="mini-texto"><span class="es">Finalista en Reto Marte con el equipo Phignix: 2.º lugar.</span><span class="en">Reto Marte finalist with team Phignix: 2nd place.</span></p>
+          </div>
+          <div class="hito hito-actual aparece">
+            <p class="fecha"><span class="es">Sep 2025 — Actualidad</span><span class="en">Sep 2025 — Present</span></p>
+            <h3><span class="es">Asistente de Gerencia, Operaciones y Gestión Digital</span><span class="en">Management, Operations &amp; Digital Assistant</span></h3>
+            <p class="empresa">Panaplast S.A.</p>
+            <ul>
+              <li><span class="es">Seguimiento de incidencias de CRM, facturación electrónica y herramientas digitales.</span><span class="en">Follow-up on CRM, e-invoicing and digital tool issues.</span></li>
+              <li><span class="es">Controles y reportes en Excel para la trazabilidad y el seguimiento operativo.</span><span class="en">Excel controls and reports for traceability and operational tracking.</span></li>
+              <li><span class="es">Desde agosto de 2026: contenido y análisis de métricas digitales de cinco marcas del grupo.</span><span class="en">Since August 2026: content and digital metrics analysis for five of the group's brands.</span></li>
+            </ul>
+          </div>
+          <div class="hito hito-meta aparece">
+            <p class="fecha"><span class="es">Mayo 2027 · Próxima parada</span><span class="en">May 2027 · Next stop</span></p>
+            <h3><span class="es">Graduación y mi primer rol en tecnología</span><span class="en">Graduation and my first tech role</span></h3>
+            <ul>
+              <li><span class="es">Busco una práctica o puesto junior en datos, sistemas, soporte TI o desarrollo.</span><span class="en">Looking for an internship or junior role in data, systems, IT support or development.</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <aside class="lateral">
+          <div class="caja noche aparece">
+            <small>Universidad Fidélitas</small>
+            <h3><span class="es">Bachillerato en Ingeniería en Sistemas de Computación</span><span class="en">B.S. in Computer Systems Engineering</span></h3>
+            <p><span class="es">En curso · graduación prevista en mayo de 2027</span><span class="en">In progress · expected graduation May 2027</span></p>
+            <div class="progreso"><div class="riel"><i id="riel"></i></div><div class="marcas"><span>2024</span><span id="pct">0%</span><span>2027</span></div></div>
+          </div>
+          <div class="caja aparece">
+            <small><span class="es">Mi CV</span><span class="en">My résumé</span></small>
+            <h3><span class="es">Descargá la versión que buscás</span><span class="en">Download the version you need</span></h3>
+            <a class="resumen-cert" href="#certificaciones"><b>12</b><span><span class="es">certificaciones y cursos: Cisco, AWS, IBM, Scrum y más</span><span class="en">certifications and courses: Cisco, AWS, IBM, Scrum and more</span></span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+            <div class="cvs" id="cv">
+              <a class="btn btn-claro" href="CV-Maria-Paz-Garcia-Data-EN.pdf" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
+                <span class="es">CV · Datos y BI</span><span class="en">Résumé · Data &amp; BI</span> <small>EN</small></a>
+              <a class="btn btn-claro" href="CV-Maria-Paz-Garcia-Business-EN.pdf" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
+                <span class="es">CV · Sistemas y procesos</span><span class="en">Résumé · Systems &amp; processes</span> <small>EN</small></a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CERTIFICACIONES ===================== -->
+  <section id="certificaciones">
+    <div class="contenedor">
+      <div class="cabeza">
+        <p class="ojo aparece"><span class="es">Certificaciones</span><span class="en">Certifications</span></p>
+        <h2 class="aparece"><span class="es">Aprendizaje continuo, <span class="suave">con respaldo</span></span><span class="en">Continuous learning, <span class="suave">backed by credentials</span></span></h2>
+        <p class="bajada aparece"><span class="es">Certificaciones y cursos que complementan mi carrera, de Cisco, AWS, IBM, SCRUMstudy y otras instituciones.</span><span class="en">Certifications and courses that complement my degree, from Cisco, AWS, IBM, SCRUMstudy and other institutions.</span></p>
+      </div>
+      <div class="filtros filtros-cert aparece" id="filtros-cert" role="group" aria-label="Filtrar certificaciones">
+        <button type="button" data-f="todas" aria-pressed="true"><span class="es">Todas</span><span class="en">All</span> <i>12</i></button>
+        <button type="button" data-f="redes" aria-pressed="false"><span class="es">Redes y seguridad</span><span class="en">Networking &amp; security</span></button>
+        <button type="button" data-f="nube" aria-pressed="false"><span class="es">Nube</span><span class="en">Cloud</span></button>
+        <button type="button" data-f="agil" aria-pressed="false"><span class="es">Agilidad</span><span class="en">Agile</span></button>
+        <button type="button" data-f="negocio" aria-pressed="false"><span class="es">Negocio e IA</span><span class="en">Business &amp; AI</span></button>
+        <button type="button" data-f="verificadas" aria-pressed="false" class="f-ver"><span class="es">Solo verificadas</span><span class="en">Verified only</span></button>
+      </div>
+      <div class="grupos-cert">
+        <article class="grupo-cert aparece" data-g="redes">
+          <h3><span class="icono-min"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="es">Redes y ciberseguridad</span><span class="en">Networking &amp; security</span><i>5</i></h3>
+          <ul>
+            <li><div><b>CCNA: Introduction to Networks</b><span>Cisco Networking Academy · 2026</span></div><em class="k-ver"><span class="es">Verificada · Credly</span><span class="en">Verified · Credly</span></em></li>
+            <li><div><b>CCNA: Switching, Routing &amp; Wireless Essentials</b><span>Cisco Networking Academy · U. Fidélitas · abr 2026</span></div><em class="k-cert"><span class="es">Certificación</span><span class="en">Certification</span></em></li>
+            <li><div><b>Cybersecurity Fundamentals</b><span>IBM SkillsBuild · 2024</span></div><em class="k-ver"><span class="es">Verificada · Credly</span><span class="en">Verified · Credly</span></em></li>
+            <li><div><b><span class="es">Fundamentos de Ciberseguridad</span><span class="en">Cybersecurity Fundamentals</span></b><span>MICITT · CECI · 2025</span></div><em class="k-part"><span class="es">Participación</span><span class="en">Participation</span></em></li>
+            <li><div><b><span class="es">Fundamentos de Ciberseguridad</span><span class="en">Cybersecurity Fundamentals</span></b><span>Embajada de EE. UU. · MICITT · 2025</span></div><em class="k-curso"><span class="es">Curso</span><span class="en">Course</span></em></li>
+          </ul>
+        </article>
+        <article class="grupo-cert aparece" data-g="nube">
+          <h3><span class="icono-min"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18h10a4 4 0 0 0 .5-7.97A6 6 0 0 0 6 9.5 4.25 4.25 0 0 0 7 18z"/></svg></span><span class="es">Nube</span><span class="en">Cloud</span><i>2</i></h3>
+          <ul>
+            <li><div><b>AWS Academy Cloud Foundations</b><span>Amazon Web Services · 2024</span></div><em class="k-ver"><span class="es">Verificada · Credly</span><span class="en">Verified · Credly</span></em></li>
+            <li><div><b>Cloud Computing Core</b><span>edX · 2024</span></div><em class="k-curso"><span class="es">Curso</span><span class="en">Course</span></em></li>
+          </ul>
+        </article>
+        <article class="grupo-cert aparece" data-g="agil">
+          <h3><span class="icono-min"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg></span><span class="es">Agilidad y metodologías</span><span class="en">Agile &amp; methods</span><i>3</i></h3>
+          <ul>
+            <li><div><b>Scrum Fundamentals Certified</b><span>SCRUMstudy · 2025</span></div><em class="k-cert"><span class="es">Certificación</span><span class="en">Certification</span></em></li>
+            <li><div><b>Agile Explorer</b><span>IBM SkillsBuild · 2024</span></div><em class="k-ver"><span class="es">Verificada · Credly</span><span class="en">Verified · Credly</span></em></li>
+            <li><div><b><span class="es">Curso completo en Design Thinking</span><span class="en">Complete Design Thinking course</span></b><span>Udemy · jun 2025</span></div><em class="k-curso"><span class="es">Curso</span><span class="en">Course</span></em></li>
+          </ul>
+        </article>
+        <article class="grupo-cert aparece" data-g="negocio">
+          <h3><span class="icono-min"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"/></svg></span><span class="es">Negocio, IA y transformación digital</span><span class="en">Business, AI &amp; digital transformation</span><i>2</i></h3>
+          <ul>
+            <li><div><b><span class="es">Transformación Estratégica y Digital para Pymes</span><span class="en">Strategic &amp; Digital Transformation for SMEs</span></b><span>Academia Coca-Cola · FEMSA · Aliarse · oct 2024</span></div><em class="k-curso"><span class="es">Curso</span><span class="en">Course</span></em></li>
+            <li><div><b><span class="es">IA: La nueva dimensión del conocimiento</span><span class="en">AI: The new dimension of knowledge</span></b><span>Universidad Fidélitas · sep 2025</span></div><em class="k-part"><span class="es">Participación</span><span class="en">Participation</span></em></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTENIDO + IA ===================== -->
+  <section id="contenido-ia" class="oscuro">
+    <div class="contenedor">
+      <div class="cabeza">
+        <p class="ojo aparece"><span class="es">Contenido digital e IA</span><span class="en">Digital content &amp; AI</span></p>
+        <h2 class="aparece"><span class="es">Creatividad con método, <span class="suave">potenciada con inteligencia artificial</span></span><span class="en">Creativity with method, <span class="suave">powered by artificial intelligence</span></span></h2>
+        <p class="bajada aparece"><span class="es">Creo contenido para marcas reales y uso la IA todos los días para hacerlo mejor y más rápido.</span><span class="en">I create content for real brands and use AI every day to do it better and faster.</span></p>
+      </div>
+      <div class="ia-grid">
+        <article class="ia-card rosa aparece">
+          <span class="tipo"><span class="es">Creación de contenido</span><span class="en">Content creation</span></span>
+          <h3><span class="es">Contenido para cinco marcas</span><span class="en">Content for five brands</span></h3>
+          <p><span class="es">Desde agosto de 2026 creo contenido para cinco marcas. Esto es lo que he aprendido:</span><span class="en">Since August 2026 I've created content for five brands. This is what I've learned:</span></p>
+          <ul>
+            <li><span class="es"><b>Estrategia:</b> planificar, conocer a la audiencia y tener un objetivo claro en cada pieza.</span><span class="en"><b>Strategy:</b> planning, knowing the audience and having a clear goal for every piece.</span></li>
+            <li><span class="es"><b>Producción:</b> grabación, edición y videos que conectan con las personas.</span><span class="en"><b>Production:</b> shooting, editing and videos that connect with people.</span></li>
+            <li><span class="es"><b>Diseño:</b> comunicar de forma visual y coherente con la identidad de cada marca.</span><span class="en"><b>Design:</b> visual communication consistent with each brand's identity.</span></li>
+            <li><span class="es"><b>Análisis:</b> usar métricas y feedback para crear contenido con mayor impacto.</span><span class="en"><b>Analysis:</b> using metrics and feedback to create higher-impact content.</span></li>
+            <li><span class="es"><b>Trabajo en equipo:</b> coordinar ideas, escuchar y aportar desde distintas perspectivas.</span><span class="en"><b>Teamwork:</b> coordinating ideas, listening and contributing from different perspectives.</span></li>
+          </ul>
+        </article>
+        <article class="ia-card aparece">
+          <span class="tipo"><span class="es">Inteligencia artificial</span><span class="en">Artificial intelligence</span></span>
+          <h3><span class="es">La IA como parte de mi forma de trabajar</span><span class="en">AI as part of how I work</span></h3>
+          <p><span class="es">Uso IA generativa a diario. Utilizada de forma estratégica, me permite descubrir nuevas formas de trabajar sin perder el criterio propio.</span><span class="en">I use generative AI every day. Used strategically, it helps me find new ways of working without losing my own judgment.</span></p>
+          <ul>
+            <li><span class="es">Optimizar procesos y ser más eficiente.</span><span class="en">Optimizing processes and working more efficiently.</span></li>
+            <li><span class="es">Generar ideas y crear guiones.</span><span class="en">Generating ideas and writing scripts.</span></li>
+            <li><span class="es">Mejorar diseños y textos.</span><span class="en">Improving designs and copy.</span></li>
+            <li><span class="es">Ordenar información y apoyar mis reportes.</span><span class="en">Organizing information and supporting my reports.</span></li>
+          </ul>
+        </article>
+        <div class="flujo aparece" aria-label="Mi flujo de contenido con IA">
+          <div><small>01</small><b><span class="es">Idea y objetivo</span><span class="en">Idea &amp; goal</span></b></div>
+          <div><small><span class="es">02 · IA</span><span class="en">02 · AI</span></small><b><span class="es">Explorar opciones</span><span class="en">Explore options</span></b></div>
+          <div class="humano"><small><span class="es">03 · Criterio</span><span class="en">03 · Judgment</span></small><b><span class="es">Reviso y ajusto</span><span class="en">Review &amp; refine</span></b></div>
+          <div><small>04</small><b><span class="es">Publicar</span><span class="en">Publish</span></b></div>
+          <div><small>05</small><b><span class="es">Medir y mejorar</span><span class="en">Measure &amp; improve</span></b></div>
+        </div>
+        <div class="destacado aparece">
+          <div class="destacado-texto">
+            <span class="tipo"><span class="es">Contenido destacado</span><span class="en">Featured content</span></span>
+            <h3><span class="es">Un reel hecho de principio a fin</span><span class="en">A reel made from start to finish</span></h3>
+            <p><span class="es">Idea, guion, grabación y edición para una de las marcas con las que trabajo. Tocá el teléfono para verlo en Instagram.</span><span class="en">Idea, script, shooting and editing for one of the brands I work with. Tap the phone to watch it on Instagram.</span></p>
+            <a class="enlace-proyecto" href="https://www.instagram.com/reel/DewybDAErK3/" target="_blank" rel="noopener"><span class="es">Ver el reel en Instagram</span><span class="en">Watch the reel on Instagram</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+          </div>
+          <a class="telefono" href="https://www.instagram.com/reel/DewybDAErK3/" target="_blank" rel="noopener" aria-label="Ver el reel en Instagram">
+            <span class="telefono-isla"></span>
+            <span class="telefono-pantalla">
+              <!-- PORTADA: cuando tengas una captura del reel, guardala como reel-panaplast.jpg y descomentá la línea de abajo -->
+              <!-- <img src="reel-panaplast.jpg" alt="" class="portada-reel"> -->
+              <span class="reel-barra"><b>Reels</b><span>▶</span></span>
+              <span class="reel-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+              <span class="reel-pie">
+                <span class="reel-etiqueta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg><span class="es">Tocá para ver</span><span class="en">Tap to watch</span></span>
+                <span class="reel-credito"><span class="es">Creado por María Paz</span><span class="en">Created by María Paz</span></span>
+              </span>
+            </span>
+          </a>
+        </div>
+        <div class="kit aparece">
+          <span class="kit-titulo"><span class="es">Herramientas que uso</span><span class="en">Tools I use</span></span>
+          <div class="kit-lista">
+            <span><i style="--c:#00C4CC">Ca</i>Canva</span>
+            <span><i style="--c:#E5E7EB">Cc</i>CapCut</span>
+            <span><i style="--c:#9999FF">Pr</i>Premiere Pro</span>
+            <span><i style="--c:#9999FF">Ae</i>After Effects</span>
+            <span><i style="--c:#10A37F">AI</i>ChatGPT</span>
+          </div>
+        </div>
+        <p class="nota-ia aparece"><span class="es">La IA no reemplaza la creatividad: la potencia. La revisión y la decisión final siempre son mías.</span><span class="en">AI doesn't replace creativity: it amplifies it. The review and the final call are always mine.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SOBRE MÍ ===================== -->
+  <section id="sobre-mi">
+    <div class="contenedor sobre">
+      <div class="sobre-foto aparece">
+        <img src="foto-creativa.jpg" alt="María Paz sonriendo, con blazer fucsia" width="800" height="1037" loading="lazy">
+      </div>
+      <div class="sobre-texto">
+        <p class="ojo aparece"><span class="es">Sobre mí</span><span class="en">About me</span></p>
+        <h2 class="aparece"><span class="es">Elegancia en la presencia. <span class="suave">Estrategia en la acción.</span></span><span class="en">Elegance in presence. <span class="suave">Strategy in action.</span></span></h2>
+        <p class="aparece">
+          <span class="es">Soy una persona curiosa, adaptable y comprometida con lo que hago. Estudio Ingeniería en Sistemas de Computación en la Universidad Fidélitas y me gusta aprender cómo la tecnología puede ayudar a mejorar procesos y resolver problemas reales. Mi experiencia en distintas áreas me ha enseñado a organizarme, trabajar con personas y buscar alternativas cuando algo no funciona como debería.</span>
+          <span class="en">I'm curious, adaptable and committed to what I do. I study Computer Systems Engineering at Universidad Fidélitas, and I like learning how technology can improve processes and solve real problems. Working across different areas has taught me to stay organized, work well with people and look for alternatives when something isn't working as it should.</span>
+        </p>
+        <p class="aparece">
+          <span class="es">Empecé estudiando enfermería, pero descubrí que mi verdadera pasión estaba en la tecnología, los retos y el aprendizaje constante. Cambiar de camino me enseñó que el límite lo pone uno: hoy trabajo, estudio y sigo preparándome para crecer en el mundo de la tecnología.</span>
+          <span class="en">I started out studying nursing, but discovered that my real passion was technology, challenges and constant learning. Changing paths taught me that we set our own limits: today I work, study and keep preparing to grow in the tech world.</span>
+        </p>
+        <div class="ia aparece">
+          <div class="ia-cabeza">
+            <span class="ia-icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"/><path d="M19 15l.8 1.9 1.9.8-1.9.8L19 20.4l-.8-1.9-1.9-.8 1.9-.8z"/></svg></span>
+            <h3><span class="es">Inteligencia artificial en mi día a día</span><span class="en">AI in my day-to-day work</span></h3>
+          </div>
+          <p><span class="es">Uso herramientas de IA generativa de forma constante, sobre todo en la creación de contenido digital: me ayudan a generar ideas, redactar y adaptar textos, y producir piezas para distintas marcas con más rapidez. Siempre reviso y ajusto lo que produce la IA, porque el criterio y el toque final son míos.</span><span class="en">I use generative AI tools constantly, especially for digital content creation: they help me brainstorm, draft and adapt copy, and produce pieces for different brands faster. I always review and refine what AI produces, because the judgment and the final touch are mine.</span></p>
+          <div class="ia-usos">
+            <span><span class="es">Ideas y guiones</span><span class="en">Ideas &amp; scripts</span></span>
+            <span><span class="es">Redacción de textos</span><span class="en">Copywriting</span></span>
+            <span><span class="es">Piezas para redes</span><span class="en">Social media pieces</span></span>
+            <span><span class="es">Organización de información</span><span class="en">Organizing information</span></span>
+            <span><span class="es">Revisión humana</span><span class="en">Human review</span></span>
+          </div>
+        </div>
+        <div class="cita-rectora aparece">
+          <span class="es">Me gusta entender cómo funcionan las cosas, encontrar lo que puede mejorarse y aprender las herramientas necesarias para hacerlo posible.</span>
+          <span class="en">I like to understand how things work, find what can be improved and learn the tools needed to make it happen.</span>
+        </div>
+        <div class="rasgos aparece">
+          <span class="rasgo"><span class="es">Creativa</span><span class="en">Creative</span></span>
+          <span class="rasgo"><span class="es">Positiva</span><span class="en">Positive</span></span>
+          <span class="rasgo"><span class="es">Ambiciosa</span><span class="en">Ambitious</span></span>
+          <span class="rasgo"><span class="es">Adaptable</span><span class="en">Adaptable</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MÁS ALLÁ DE MÍ ===================== -->
+  <section id="mas-alla">
+    <div class="contenedor">
+      <div class="cabeza">
+        <p class="ojo aparece"><span class="es">Más allá de mí</span><span class="en">Beyond work</span></p>
+        <h2 class="aparece"><span class="es">La persona <span class="suave">detrás del perfil</span></span><span class="en">The person <span class="suave">behind the profile</span></span></h2>
+        <p class="bajada aparece"><span class="es">Creo que aprender también implica escuchar, observar y mantener una actitud agradecida ante cada oportunidad.</span><span class="en">I believe learning also means listening, observing and staying grateful for every opportunity.</span></p>
+      </div>
+      <div class="mas-alla">
+        <div class="interes aparece">
+          <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 21V5M8 7h7"/></svg></div>
+          <h3><span class="es">Leer</span><span class="en">Reading</span></h3>
+          <p><span class="es">Sobre todo libros de motivación y crecimiento personal.</span><span class="en">Mostly books on motivation and personal growth.</span></p>
+        </div>
+        <div class="interes aparece">
+          <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg></div>
+          <h3><span class="es">Viajar</span><span class="en">Traveling</span></h3>
+          <p><span class="es">Conocer culturas y vivir experiencias nuevas. Mi mapa apenas empieza, y cada viaje suma una parada.</span><span class="en">Discovering cultures and new experiences. My map is just getting started, and every trip adds a stop.</span></p>
+        </div>
+        <div class="interes aparece">
+          <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></div>
+          <h3><span class="es">Gratitud</span><span class="en">Gratitude</span></h3>
+          <p><span class="es">Una actitud positiva, compartir con otras personas y valorar cada oportunidad.</span><span class="en">A positive attitude, sharing with others and valuing every opportunity.</span></p>
+        </div>
+      </div>
+      <article class="campana aparece">
+        <div class="campana-texto">
+          <span class="tipo"><span class="es">Universidad Fidélitas · 2024</span><span class="en">Universidad Fidélitas · 2024</span></span>
+          <h3><span class="es">Imagen de la campaña «Dale mundo a tu ingenio»</span><span class="en">Face of the “Dale mundo a tu ingenio” campaign</span></h3>
+          <p><span class="es">Fui parte de la campaña publicitaria de la Universidad Fidélitas por su 44 aniversario, representando a los estudiantes de Ingeniería en Sistemas. La campaña estuvo en vallas, buses y redes sociales.</span><span class="en">I was part of Universidad Fidélitas' advertising campaign for its 44th anniversary, representing Computer Systems Engineering students. The campaign ran on billboards, buses and social media.</span></p>
+          <div class="herramientas claro"><span><span class="es">Vallas</span><span class="en">Billboards</span></span><span><span class="es">Buses</span><span class="en">Buses</span></span><span><span class="es">Redes sociales</span><span class="en">Social media</span></span></div>
+        </div>
+        <div class="campana-fotos">
+          <img src="fidelitas-valla.jpg" alt="María Paz frente a la valla de la campaña de Fidélitas" width="1000" height="750" loading="lazy">
+          <img src="fidelitas-campana.jpg" alt="Pieza de la campaña 44 años de la Universidad Fidélitas con María Paz" width="1000" height="1000" loading="lazy">
+          <img src="fidelitas-bus.jpg" alt="Bus con la publicidad de Fidélitas protagonizada por María Paz" width="750" height="1000" loading="lazy">
+        </div>
+      </article>
+      <div class="frase aparece">
+        <blockquote>
+          <span class="es">«Pies, ¿para qué los quiero si tengo <strong>alas para volar</strong>?»</span>
+          <span class="en">“Feet, what do I need them for if I have <strong>wings to fly</strong>?”</span>
+        </blockquote>
+        <cite>FRIDA KAHLO · <span class="es">LA FRASE QUE ME ACOMPAÑA</span><span class="en">THE QUOTE I LIVE BY</span></cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACTO ===================== -->
+  <section class="contacto oscuro" id="contacto">
+    <svg class="red" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g class="flota"><line x1="100" y1="120" x2="280" y2="60"/><line x1="280" y1="60" x2="360" y2="200"/><circle cx="100" cy="120" r="2.5"/><circle cx="280" cy="60" r="2"/><circle cx="360" cy="200" r="2.5"/></g>
+      <g class="flota-2"><line x1="900" y1="480" x2="1080" y2="400"/><line x1="1080" y1="400" x2="1120" y2="540"/><circle cx="900" cy="480" r="2"/><circle cx="1080" cy="400" r="2.5"/><circle cx="1120" cy="540" r="2"/></g>
+    </svg>
+    <div class="contenedor">
+      <p class="ojo aparece"><span class="es">Contacto</span><span class="en">Contact</span></p>
+      <h2 class="aparece"><span class="es">Hablemos <span class="suave">de oportunidades en tecnología</span></span><span class="en">Let's connect <span class="suave">about tech opportunities</span></span></h2>
+      <p class="bajada aparece"><span class="es">Busco una práctica o un primer puesto en datos, sistemas o soporte TI. Y si necesitás ayuda con un proyecto, también podés escribirme: te respondo pronto.</span><span class="en">I'm looking for an internship or a first role in data, systems or IT support. And if you need help with a project, feel free to write to me: I'll get back to you soon.</span></p>
+      <div class="botones aparece">
+        <a class="btn btn-primario" href="mailto:maripazu03@gmail.com"><span class="es">Escribirme</span><span class="en">Email me</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-fantasma" href="https://www.linkedin.com/in/mar%C3%ADa-paz-garc%C3%ADa-uma%C3%B1a" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-fantasma" href="#cv"><span class="es">Ver mi CV</span><span class="en">See my résumé</span></a>
+        <!-- Cuando tengas GitHub, cambiá TU-USUARIO y quitá el comentario:
+        <a class="btn btn-fantasma" href="https://github.com/TU-USUARIO" target="_blank" rel="noopener">GitHub</a> -->
+      </div>
+      <div class="aparece">
+        <button class="correo" id="copiar" type="button" aria-label="Copiar correo">
+          maripazu03@gmail.com
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+        </button>
+      </div>
+      <footer class="pie-grande">
+        <div>
+          <div class="pie-marca"><span class="monograma">MPG</span>María Paz García Umaña</div>
+          <p><span class="es">Tecnología, creatividad y soluciones con propósito.</span><span class="en">Technology, creativity and solutions with purpose.</span></p>
+        </div>
+        <div>
+          <h4><span class="es">Navegación</span><span class="en">Navigate</span></h4>
+          <ul>
+            <li><a href="#sobre-mi"><span class="es">Sobre mí</span><span class="en">About</span></a></li>
+            <li><a href="#proyectos"><span class="es">Proyectos</span><span class="en">Projects</span></a></li>
+            <li><a href="#experiencia"><span class="es">Experiencia</span><span class="en">Experience</span></a></li>
+          </ul>
+        </div>
+        <div>
+          <h4><span class="es">Perfil</span><span class="en">Profile</span></h4>
+          <ul>
+            <li><a href="#competencias"><span class="es">Competencias</span><span class="en">Skills</span></a></li>
+            <li><a href="#certificaciones"><span class="es">Certificaciones</span><span class="en">Certifications</span></a></li>
+            <li><a href="#mas-alla"><span class="es">Más allá de mí</span><span class="en">Beyond work</span></a></li>
+            <li><a href="https://www.linkedin.com/in/mar%C3%ADa-paz-garc%C3%ADa-uma%C3%B1a" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4><span class="es">Contacto</span><span class="en">Contact</span></h4>
+          <ul>
+            <li><a href="mailto:maripazu03@gmail.com">maripazu03@gmail.com</a></li>
+            <li><a href="#contacto">San José, Costa Rica</a></li>
+          </ul>
+        </div>
+      </footer>
+      <div class="pie-final">
+        <span>© <span id="anio"></span> · <span class="es">Portafolio creado por</span><span class="en">Portfolio created by</span> <b>María Paz García Umaña</b></span>
+        <span>HTML · CSS · JavaScript</span>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <a class="cv-flotante" id="cv-flotante" href="#cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg><span class="es">Descargar CV</span><span class="en">Download résumé</span></a>
+  <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+
+  <script>
+    const raiz = document.documentElement;
+
+    // ---------- Idioma ES / EN ----------
+    function ponerIdioma(lang) {
+      raiz.dataset.lang = lang; raiz.lang = lang;
+      document.querySelectorAll('[data-set-lang]').forEach(b => b.setAttribute('aria-pressed', b.dataset.setLang === lang));
+      try { localStorage.setItem('idioma', lang); } catch (e) {}
+    }
+    document.querySelectorAll('[data-set-lang]').forEach(b => b.addEventListener('click', () => ponerIdioma(b.dataset.setLang)));
+    let inicial = 'es';
+    try { const g = localStorage.getItem('idioma'); if (g) inicial = g; else if ((navigator.language || '').toLowerCase().startsWith('en')) inicial = 'en'; } catch (e) {}
+    const p = new URLSearchParams(location.search).get('lang'); if (p === 'es' || p === 'en') inicial = p;
+    ponerIdioma(inicial);
+
+    // ---------- Menú celular ----------
+    const menu = document.getElementById('menu'), hamb = document.getElementById('hamburguesa');
+    function cerrarMenu() { menu.classList.remove('abierto'); hamb.classList.remove('abierto'); hamb.setAttribute('aria-expanded', 'false'); }
+    hamb.addEventListener('click', () => { const a = menu.classList.toggle('abierto'); hamb.classList.toggle('abierto', a); hamb.setAttribute('aria-expanded', a); });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', cerrarMenu));
+    addEventListener('keydown', e => { if (e.key === 'Escape') cerrarMenu(); });
+
+    // ---------- Menú sólido y sección activa ----------
+    const nav = document.getElementById('nav');
+    addEventListener('scroll', () => nav.classList.toggle('solido', scrollY > 30), { passive: true });
+    const enlaces = [...menu.querySelectorAll('a')];
+    const espia = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) enlaces.forEach(a => a.classList.toggle('activo', a.getAttribute('href') === '#' + e.target.id));
+    }), { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('section[id], header[id]').forEach(s => espia.observe(s));
+
+    // ---------- Aparición suave ----------
+    const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }), { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.aparece').forEach((el, k) => { el.style.transitionDelay = (k % 4) * 90 + 'ms'; obs.observe(el); });
+
+    // ---------- Avance de la carrera (se calcula solo) ----------
+    const ini = new Date(2024, 0, 15), fin = new Date(2027, 4, 31);
+    const pct = Math.max(0, Math.min(100, Math.round((Date.now() - ini) / (fin - ini) * 100)));
+    new IntersectionObserver(([e], o) => { if (!e.isIntersecting) return; o.disconnect();
+      document.getElementById('riel').style.width = pct + '%'; document.getElementById('pct').textContent = pct + '%'; }).observe(document.getElementById('riel'));
+
+    // ---------- Copiar correo ----------
+    const aviso = document.getElementById('aviso');
+    document.getElementById('copiar').addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText('maripazu03@gmail.com'); aviso.textContent = raiz.lang === 'es' ? 'Correo copiado' : 'Email copied'; }
+      catch (e) { aviso.textContent = 'maripazu03@gmail.com'; }
+      aviso.classList.add('ver'); setTimeout(() => aviso.classList.remove('ver'), 2200);
+    });
+    document.getElementById('anio').textContent = new Date().getFullYear();
+
+    // =========================================================
+    //  HABILIDADES: radar + pestañas
+    // =========================================================
+    const AREAS = [
+      { es: 'Datos y BI', en: 'Data & BI', nivel: 4,
+        des: ['Reportes, indicadores y tableros para dar seguimiento a la operación.', 'Reports, KPIs and dashboards to track operations.'],
+        herr: [['Excel','Excel','t'],['Power BI','Power BI','t'],['Power Query','Power Query','t'],['Reportes y KPIs','Reports & KPIs','t'],['Data Warehouse','Data Warehouse','u'],['Modelo dimensional','Dimensional model','u']] },
+      { es: 'Bases de datos', en: 'Databases', nivel: 3,
+        des: ['Diseño relacional, consultas y vistas en proyectos de la universidad.', 'Relational design, queries and views in university projects.'],
+        herr: [['SQL','SQL','u'],['Oracle','Oracle','u'],['SQL Server','SQL Server','u'],['MySQL','MySQL','u'],['Modelado relacional','Relational modeling','u'],['Bases de clientes','Customer databases','t']] },
+      { es: 'Desarrollo', en: 'Development', nivel: 3,
+        des: ['Programación orientada a objetos y web, con control de versiones.', 'Object-oriented and web programming, with version control.'],
+        herr: [['Java','Java','u'],['C#','C#','u'],['HTML · CSS · JS','HTML · CSS · JS','u'],['Git · GitHub','Git · GitHub','u'],['Python','Python','a'],['Este portafolio','This portfolio','t']] },
+      { es: 'Redes y nube', en: 'Network & cloud', nivel: 3,
+        des: ['Fundamentos de redes Cisco, ciberseguridad y servicios en la nube.', 'Cisco networking fundamentals, cybersecurity and cloud services.'],
+        herr: [['CCNA ITN','CCNA ITN','u'],['CCNA SRWE','CCNA SRWE','u'],['Ciberseguridad','Cybersecurity','u'],['AWS Cloud','AWS Cloud','u'],['Servidores','Servers','u'],['IoT','IoT','a']] },
+      { es: 'Contenido e IA', en: 'Content & AI', nivel: 4,
+        des: ['Contenido para cinco marcas, con IA generativa como aliada en todo el proceso.', 'Content for five brands, with generative AI as an ally throughout.'],
+        herr: [['ChatGPT','ChatGPT','t'],['Canva','Canva','t'],['CapCut','CapCut','t'],['Premiere Pro','Premiere Pro','t'],['After Effects','After Effects','a'],['Métricas','Metrics','t']] },
+      { es: 'Procesos y equipo', en: 'Process & teamwork', nivel: 4,
+        des: ['Organizar información, coordinar áreas y mejorar cómo se trabaja.', 'Organizing information, coordinating teams and improving how work gets done.'],
+        herr: [['CRM','CRM','t'],['Trazabilidad','Traceability','t'],['Coordinación','Coordination','t'],['Scrum','Scrum','u'],['Design Thinking','Design Thinking','u'],['Requerimientos','Requirements','u']] }
+    ];
+    const ORIGEN = { t: ['o-trabajo','Trabajo','Work'], u: ['o-u','U','U'], a: ['o-aprendo','Aprendo','Learning'] };
+    const bi = (es, en) => `<span class="es">${es}</span><span class="en">${en}</span>`;
+    const NS = 'http://www.w3.org/2000/svg';
+    const radar = document.getElementById('radar');
+    const CX = 200, CY = 190, R = 120, N = AREAS.length;
+    const pt = (i, r) => { const a = -Math.PI / 2 + i * 2 * Math.PI / N; return [CX + r * Math.cos(a), CY + r * Math.sin(a)]; };
+    let svg = '';
+    for (let k = 1; k <= 5; k++) svg += `<polygon class="anillo" points="${AREAS.map((_, i) => pt(i, R * k / 5).join(',')).join(' ')}"/>`;
+    AREAS.forEach((_, i) => { const [x, y] = pt(i, R); svg += `<line class="eje" x1="${CX}" y1="${CY}" x2="${x}" y2="${y}"/>`; });
+    svg += `<polygon class="area" points="${AREAS.map((a, i) => pt(i, R * a.nivel / 5).join(',')).join(' ')}"/>`;
+    AREAS.forEach((a, i) => {
+      const [px, py] = pt(i, R * a.nivel / 5), [lx, ly] = pt(i, R + 30);
+      const anchor = Math.abs(lx - CX) < 8 ? 'middle' : (lx > CX ? 'start' : 'end');
+      svg += `<g class="grupo-eje" data-i="${i}" tabindex="0" role="button" aria-label="${a.es}">
+        <circle class="hit" cx="${lx}" cy="${ly}" r="34"/>
+        <circle class="punto" cx="${px}" cy="${py}" r="5"/>
+        <text class="etiqueta" x="${lx}" y="${ly}" text-anchor="${anchor}" dominant-baseline="middle"><tspan class="es">${a.es}</tspan><tspan class="en">${a.en}</tspan></text>
+        <text class="nivel-txt" x="${lx}" y="${ly + 16}" text-anchor="${anchor}" dominant-baseline="middle">${a.nivel}/5</text>
+      </g>`;
+    });
+    radar.innerHTML = svg;
+    const tabs = document.getElementById('tabs-hab'), panel = document.getElementById('panel-hab');
+    tabs.innerHTML = AREAS.map((a, i) => `<button type="button" role="tab" id="tab-${i}" aria-selected="false" data-i="${i}">${bi(a.es, a.en)}</button>`).join('');
+    function elegir(i) {
+      const a = AREAS[i];
+      tabs.querySelectorAll('button').forEach(b => b.setAttribute('aria-selected', b.dataset.i == i));
+      radar.querySelectorAll('.grupo-eje').forEach(g => g.classList.toggle('activo', g.dataset.i == i));
+      panel.setAttribute('aria-labelledby', 'tab-' + i);
+      panel.innerHTML = `<h3>${bi(a.es, a.en)}</h3><p>${bi(a.des[0], a.des[1])}</p>
+        <div class="medidor"><div class="barras">${[1,2,3,4,5].map(k => `<i class="${k <= a.nivel ? 'lleno' : ''}" style="animation-delay:${k*70}ms"></i>`).join('')}</div>
+        <span>${bi('Nivel ' + a.nivel + ' de 5 · autoevaluación', 'Level ' + a.nivel + ' of 5 · self-assessment')}</span></div>
+        <ul class="herr">${a.herr.map(h => `<li>${bi(h[0], h[1])}<span class="origen ${ORIGEN[h[2]][0]}">${bi(ORIGEN[h[2]][1], ORIGEN[h[2]][2])}</span></li>`).join('')}</ul>`;
+      panel.style.animation = 'none'; void panel.offsetWidth; panel.style.animation = '';
+    }
+    tabs.addEventListener('click', e => { const b = e.target.closest('button'); if (b) elegir(+b.dataset.i); });
+    tabs.addEventListener('keydown', e => {
+      if (!['ArrowRight','ArrowLeft'].includes(e.key)) return;
+      const cur = [...tabs.children].findIndex(b => b.getAttribute('aria-selected') === 'true');
+      const n = (cur + (e.key === 'ArrowRight' ? 1 : N - 1)) % N; elegir(n); tabs.children[n].focus();
+    });
+    radar.querySelectorAll('.grupo-eje').forEach(g => {
+      g.addEventListener('click', () => elegir(+g.dataset.i));
+      g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); elegir(+g.dataset.i); } });
+    });
+    elegir(0);
+    new IntersectionObserver(([e], o) => { if (e.isIntersecting) { radar.classList.add('animar'); o.disconnect(); } }, { threshold: .4 }).observe(radar);
+
+    // =========================================================
+    //  LÍNEA DE TIEMPO VIVA
+    // =========================================================
+    const viva = document.getElementById('linea-viva'), rielVivo = document.getElementById('riel-vivo');
+    const hitosVivos = [...viva.querySelectorAll('.hito')];
+    function actualizarLinea() {
+      const r = viva.getBoundingClientRect(), punto = innerHeight * .6;
+      const prog = Math.max(0, Math.min(1, (punto - r.top) / r.height));
+      rielVivo.style.height = (prog * 100) + '%';
+      hitosVivos.forEach(h => h.classList.toggle('encendido', h.getBoundingClientRect().top + 14 < punto));
+    }
+    addEventListener('scroll', actualizarLinea, { passive: true }); addEventListener('resize', actualizarLinea); actualizarLinea();
+
+    // =========================================================
+    //  FILTROS DE CERTIFICACIONES
+    // =========================================================
+    const filtrosCert = document.getElementById('filtros-cert');
+    filtrosCert.addEventListener('click', e => {
+      const b = e.target.closest('button'); if (!b) return; const f = b.dataset.f;
+      filtrosCert.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
+      document.querySelectorAll('.grupo-cert').forEach(gr => {
+        const lis = gr.querySelectorAll('li');
+        lis.forEach(li => li.classList.toggle('cert-oculto', f === 'verificadas' && !li.querySelector('.k-ver')));
+        const visibles = [...lis].filter(li => !li.classList.contains('cert-oculto')).length;
+        const ocultar = (f !== 'todas' && f !== 'verificadas' && gr.dataset.g !== f) || visibles === 0;
+        gr.classList.toggle('cert-oculto', ocultar);
+        gr.querySelector('h3 i').textContent = visibles;
+        if (!ocultar) { gr.style.animation = 'none'; void gr.offsetWidth; gr.style.animation = ''; }
+      });
+    });
+
+    // ---------- Contador del inicio ----------
+    document.querySelectorAll('[data-contar]').forEach(el => {
+      const fin = +el.dataset.contar;
+      new IntersectionObserver(([e], o) => { if (!e.isIntersecting) return; o.disconnect();
+        if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const t0 = performance.now(); (function paso(t) { const p = Math.min((t - t0) / 1100, 1); el.textContent = Math.max(1, Math.round(fin * p)); if (p < 1) requestAnimationFrame(paso); })(t0);
+      }).observe(el);
+    });
+
+    // ---------- Botón flotante de CV (celular) ----------
+    const cvFlot = document.getElementById('cv-flotante'), zonaCv = document.getElementById('cv'), inicioEl = document.getElementById('inicio');
+    let cvVisible = false;
+    new IntersectionObserver(([e]) => { cvVisible = e.isIntersecting; }).observe(zonaCv);
+    function botonCv() { cvFlot.classList.toggle('ver', inicioEl.getBoundingClientRect().bottom < 0 && !cvVisible && !menu.classList.contains('abierto')); }
+    addEventListener('scroll', botonCv, { passive: true }); botonCv();
+  </script>
+</body>
+</html>
