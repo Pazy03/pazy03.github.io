@@ -7,15 +7,16 @@
   <meta name="description" content="María Paz García Umaña — estudiante avanzada de Ingeniería en Sistemas de Computación. Análisis, mejora de procesos, datos y soluciones prácticas. San José, Costa Rica.">
   <meta property="og:title" content="María Paz García Umaña">
   <meta property="og:description" content="Tecnología, creatividad y soluciones con propósito.">
-  <!-- Vista previa al compartir: cuando tengas tu usuario de GitHub, cambiá TU-USUARIO -->
+  <!-- Vista previa al compartir -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://TU-USUARIO.github.io/">
-  <meta property="og:image" content="https://TU-USUARIO.github.io/vista-previa.jpg">
+  <meta property="og:url" content="https://pazy03.github.io/">
+  <meta property="og:image" content="https://pazy03.github.io/vista-previa.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#091426">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23091426'/><text x='32' y='41' font-size='22' font-weight='700' text-anchor='middle' font-family='Arial' fill='%23F5F8FC'>MPG</text><rect x='18' y='47' width='28' height='2.5' rx='1' fill='%23328FFF'/></svg>">
+  <link rel="icon" type="image/png" href="favicon-mpg.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <script>
     (function () {
       var l = 'es';
@@ -675,6 +676,52 @@
     .correo-hero a { color: var(--hielo); font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(50,143,255,.6); }
     .correo-hero a:hover { color: #8EC0FF; }
 
+
+    .logo-mpg { height: 34px; width: auto; display: block; }
+    nav .marca { gap: 14px; }
+    .pie-marca .logo-mpg { height: 40px; }
+
+
+    /* ======== Más allá de mí: bento con fotos ======== */
+    .bento { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-rows: minmax(0, auto); gap: 18px; }
+    .tarjeta-foto { position: relative; margin: 0; border-radius: 26px; overflow: hidden; background: var(--profundo); box-shadow: var(--sombra); isolation: isolate; }
+    .tarjeta-foto img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
+    .tarjeta-foto:hover img { transform: scale(1.04); }
+    .tarjeta-foto figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 70px 26px 24px; color: var(--hielo); background: linear-gradient(transparent, rgba(9,20,38,.82)); }
+    .tarjeta-foto figcaption h3 { font-family: var(--titulo); font-weight: 700; font-size: clamp(1.3rem, 2vw, 1.7rem); line-height: 1.2; margin-top: 10px; }
+    .tarjeta-foto figcaption p { font-size: .95rem; color: #DCE4EE; margin-top: 6px; max-width: 460px; }
+    .etq { display: inline-flex; align-items: center; gap: 7px; font: 600 .74rem var(--titulo); letter-spacing: .14em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,.16); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.3); }
+    .etq svg { width: 14px; height: 14px; }
+    .tarjeta-foto.alto { grid-column: span 5; grid-row: span 2; min-height: 560px; }
+    .tarjeta-foto.alto img { position: absolute; inset: 0; object-position: 18% 20%; }
+    .tarjeta-foto.alto figcaption { padding-top: 90px; }
+    .tarjeta-foto.alto .etq { background: rgba(197,155,175,.85); color: #2b1520; border-color: transparent; }
+    .tarjeta-foto.ancho { grid-column: span 7; min-height: 340px; }
+    .tarjeta-foto.ancho img { position: absolute; inset: 0; object-position: 30% 66%; }
+    .tarjeta-foto.ancho figcaption { top: 0; bottom: auto; padding: 24px 26px 80px; background: linear-gradient(rgba(9,20,38,.8), transparent); }
+    .tarjeta-foto.ancho figcaption p { max-width: 380px; }
+    .tarjeta-foto.compu { grid-column: span 4; min-height: 290px; }
+    .tarjeta-foto.compu img { position: absolute; inset: 0; object-position: center 30%; }
+    .mini-tarjetas { grid-column: span 3; display: grid; gap: 12px; align-content: stretch; }
+    .mini { display: flex; gap: 12px; align-items: flex-start; padding: 16px; border-radius: 18px; background: var(--hielo); border: 1px solid var(--linea); transition: transform .4s, border-color .4s; }
+    .mini:hover { transform: translateY(-3px); border-color: var(--rosa); }
+    .mini-ic { flex: none; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: rgba(197,155,175,.2); color: #A0718A; }
+    .mini-ic svg { width: 18px; height: 18px; }
+    .mini h3 { font-family: var(--titulo); font-weight: 700; font-size: 1rem; }
+    .mini p { font-size: .84rem; color: var(--tinta-2); line-height: 1.5; margin-top: 2px; }
+    @media (max-width: 1040px) {
+      .tarjeta-foto.alto { grid-column: span 6; } .tarjeta-foto.ancho { grid-column: span 6; }
+      .tarjeta-foto.compu { grid-column: span 3; } .mini-tarjetas { grid-column: span 3; }
+    }
+    @media (max-width: 760px) {
+      .bento { grid-template-columns: 1fr; }
+      .tarjeta-foto.alto, .tarjeta-foto.ancho, .tarjeta-foto.compu, .mini-tarjetas { grid-column: auto; grid-row: auto; }
+      .tarjeta-foto.alto { aspect-ratio: 900 / 1080; min-height: 0; }
+      .tarjeta-foto.ancho { aspect-ratio: 4 / 5; min-height: 0; }
+      .tarjeta-foto.compu { aspect-ratio: 4 / 4.4; min-height: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { .tarjeta-foto:hover img { transform: none; } }
+
     /* =========================================================
        RESPONSIVE
        ========================================================= */
@@ -727,7 +774,7 @@
   <!-- ===================== MENÚ ===================== -->
   <nav id="nav" aria-label="Principal">
     <a href="#inicio" class="marca" aria-label="María Paz García Umaña, inicio">
-      <span class="monograma">MPG</span>
+      <img class="logo-mpg" src="logo-mpg.png" alt="MPG" width="94" height="34">
       <span class="marca-nombre">María Paz García Umaña<small>Ingeniería en Sistemas</small></span>
     </a>
     <ul class="menu" id="menu">
@@ -1231,21 +1278,45 @@ sql  power-bi  excel  java  c#  git  crm  ia-generativa
         <h2 class="aparece"><span class="es">La persona <span class="suave">detrás del perfil</span></span><span class="en">The person <span class="suave">behind the profile</span></span></h2>
         <p class="bajada aparece"><span class="es">Creo que aprender también implica escuchar, observar y mantener una actitud agradecida ante cada oportunidad.</span><span class="en">I believe learning also means listening, observing and staying grateful for every opportunity.</span></p>
       </div>
-      <div class="mas-alla">
-        <div class="interes aparece">
-          <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 21V5M8 7h7"/></svg></div>
-          <h3><span class="es">Leer</span><span class="en">Reading</span></h3>
-          <p><span class="es">Sobre todo libros de motivación y crecimiento personal.</span><span class="en">Mostly books on motivation and personal growth.</span></p>
-        </div>
-        <div class="interes aparece">
-          <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg></div>
-          <h3><span class="es">Viajar</span><span class="en">Traveling</span></h3>
-          <p><span class="es">Conocer culturas y vivir experiencias nuevas. Mi mapa apenas empieza, y cada viaje suma una parada.</span><span class="en">Discovering cultures and new experiences. My map is just getting started, and every trip adds a stop.</span></p>
-        </div>
-        <div class="interes aparece">
-          <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></div>
-          <h3><span class="es">Gratitud</span><span class="en">Gratitude</span></h3>
-          <p><span class="es">Una actitud positiva, compartir con otras personas y valorar cada oportunidad.</span><span class="en">A positive attitude, sharing with others and valuing every opportunity.</span></p>
+      <div class="bento">
+        <figure class="tarjeta-foto alto aparece">
+          <img src="yo-alas.jpg" alt="María Paz sentada en una ventana, con los brazos abiertos y alas dibujadas" width="900" height="1080" loading="lazy">
+          <figcaption>
+            <span class="etq"><span class="es">Mi lema</span><span class="en">My motto</span></span>
+            <p><span class="es">Una frase de Frida Kahlo que me recuerda que el límite lo pone uno.</span><span class="en">A Frida Kahlo quote that reminds me we set our own limits.</span></p>
+          </figcaption>
+        </figure>
+
+        <figure class="tarjeta-foto ancho aparece">
+          <img src="yo-antigua.jpg" alt="María Paz frente al Arco de Santa Catalina en Antigua Guatemala" width="1000" height="1333" loading="lazy">
+          <figcaption>
+            <span class="etq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Antigua Guatemala</span>
+            <h3><span class="es">Viajar</span><span class="en">Traveling</span></h3>
+            <p><span class="es">Conocer culturas y vivir experiencias nuevas es el fruto que más disfruto de mi esfuerzo. Mi mapa apenas empieza.</span><span class="en">Discovering cultures and new experiences is the reward I enjoy most from my effort. My map is just getting started.</span></p>
+          </figcaption>
+        </figure>
+
+        <figure class="tarjeta-foto compu aparece">
+          <img src="yo-compu.jpg" alt="María Paz sonriendo detrás de su laptop llena de stickers" width="900" height="1200" loading="lazy">
+          <figcaption>
+            <span class="etq"><span class="es">Mi espacio</span><span class="en">My space</span></span>
+            <h3><span class="es">Tecnología con personalidad</span><span class="en">Tech with personality</span></h3>
+          </figcaption>
+        </figure>
+
+        <div class="mini-tarjetas">
+          <div class="mini aparece">
+            <span class="mini-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 21V5M8 7h7"/></svg></span>
+            <div><h3><span class="es">Leer</span><span class="en">Reading</span></h3><p><span class="es">Libros de motivación y crecimiento personal.</span><span class="en">Books on motivation and personal growth.</span></p></div>
+          </div>
+          <div class="mini aparece">
+            <span class="mini-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span>
+            <div><h3><span class="es">Gratitud</span><span class="en">Gratitude</span></h3><p><span class="es">Actitud positiva y valorar cada oportunidad.</span><span class="en">A positive attitude and valuing every opportunity.</span></p></div>
+          </div>
+          <div class="mini aparece">
+            <span class="mini-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"/></svg></span>
+            <div><h3><span class="es">Soñar en grande</span><span class="en">Dream big</span></h3><p><span class="es">Me esfuerzo cada día para que mis sueños sucedan.</span><span class="en">I work every day to make my dreams happen.</span></p></div>
+          </div>
         </div>
       </div>
       <article class="campana aparece">
@@ -1261,13 +1332,6 @@ sql  power-bi  excel  java  c#  git  crm  ia-generativa
           <img src="fidelitas-bus.jpg" alt="Bus con la publicidad de Fidélitas protagonizada por María Paz" width="750" height="1000" loading="lazy">
         </div>
       </article>
-      <div class="frase aparece">
-        <blockquote>
-          <span class="es">«Pies, ¿para qué los quiero si tengo <strong>alas para volar</strong>?»</span>
-          <span class="en">“Feet, what do I need them for if I have <strong>wings to fly</strong>?”</span>
-        </blockquote>
-        <cite>FRIDA KAHLO · <span class="es">LA FRASE QUE ME ACOMPAÑA</span><span class="en">THE QUOTE I LIVE BY</span></cite>
-      </div>
     </div>
   </section>
 
@@ -1286,8 +1350,7 @@ sql  power-bi  excel  java  c#  git  crm  ia-generativa
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-fantasma" href="https://www.linkedin.com/in/mar%C3%ADa-paz-garc%C3%ADa-uma%C3%B1a" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn btn-fantasma" href="#cv"><span class="es">Ver mi CV</span><span class="en">See my résumé</span></a>
-        <!-- Cuando tengas GitHub, cambiá TU-USUARIO y quitá el comentario:
-        <a class="btn btn-fantasma" href="https://github.com/TU-USUARIO" target="_blank" rel="noopener">GitHub</a> -->
+        <a class="btn btn-fantasma" href="https://github.com/Pazy03" target="_blank" rel="noopener">GitHub</a>
       </div>
       <div class="aparece">
         <button class="correo" id="copiar" type="button" aria-label="Copiar correo">
@@ -1297,7 +1360,7 @@ sql  power-bi  excel  java  c#  git  crm  ia-generativa
       </div>
       <footer class="pie-grande">
         <div>
-          <div class="pie-marca"><span class="monograma">MPG</span>María Paz García Umaña</div>
+          <div class="pie-marca"><img class="logo-mpg" src="logo-mpg.png" alt="MPG" width="94" height="34">María Paz García Umaña</div>
           <p><span class="es">Tecnología, creatividad y soluciones con propósito.</span><span class="en">Technology, creativity and solutions with purpose.</span></p>
         </div>
         <div>
