@@ -14,7 +14,7 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#091426">
+  <meta name="theme-color" content="#081222">
   <link rel="icon" type="image/png" href="favicon-mpg.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <script>
@@ -26,7 +26,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     /* =========================================================
@@ -40,9 +40,14 @@
       --plata:     #AAB7C8;   /* texto auxiliar */
       --rosa:      #C59BAF;   /* acento personal, solo ocasional */
       --blanco:    #FFFFFF;
-      --tinta:     #0F1B2E;   /* texto sobre claro */
-      --tinta-2:   #4A5A70;   /* texto secundario sobre claro */
-      --linea:     #E3E9F1;
+      --tinta:     #EEF2F8;   /* texto principal */
+      --tinta-2:   #A9B6C8;   /* texto secundario */
+      --linea:     rgba(226,198,211,.12);
+      --sup:       #0F1E36;
+      --sup-2:     #0C1930;
+      --oro:       #D9B88F;
+      --rosa-claro:#E8C7D6;
+      --serif:     'Bodoni Moda', 'LM Roman 17', 'Latin Modern Roman', Didot, 'Bodoni 72', Georgia, serif;
       --vidrio:    rgba(255,255,255,.05);
       --vidrio-borde: rgba(170,183,200,.18);
       --sombra: 0 24px 60px -30px rgba(9,20,38,.35);
@@ -54,7 +59,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; overflow-x: clip; }
     body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 50; background: var(--noche); }
-    body { font-family: var(--texto); background: var(--hielo); color: var(--tinta); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--texto); background: var(--sup); color: var(--tinta); line-height: 1.7; -webkit-font-smoothing: antialiased; }
     img { max-width: 100%; display: block; }
     a { color: inherit; }
     :focus-visible { outline: 2px solid var(--digital); outline-offset: 3px; border-radius: 6px; }
@@ -97,7 +102,7 @@
     .btn-primario:hover { background: #4A9DFF; transform: translateY(-2px); }
     .btn-fantasma { border-color: rgba(170,183,200,.4); color: var(--hielo); }
     .btn-fantasma:hover { border-color: var(--hielo); background: rgba(255,255,255,.05); }
-    .btn-claro { border-color: var(--linea); color: var(--tinta); background: var(--blanco); }
+    .btn-claro { border-color: var(--linea); color: var(--tinta); background: var(--sup-2); }
     .btn-claro:hover { border-color: var(--tinta); }
 
     /* =========================================================
@@ -127,11 +132,11 @@
     .acciones-nav { display: flex; align-items: center; gap: 12px; }
     .idioma { display: inline-flex; border: 1px solid var(--vidrio-borde); border-radius: 999px; padding: 3px; }
     .idioma button { border: 0; background: transparent; color: var(--plata); font: 600 .74rem var(--titulo); letter-spacing: .06em; padding: 6px 11px; border-radius: 999px; cursor: pointer; }
-    .idioma button[aria-pressed="true"] { background: var(--hielo); color: var(--noche); }
+    .idioma button[aria-pressed="true"] { background: var(--sup); color: var(--noche); }
     .nav-cta { padding: 10px 18px; font-size: .86rem; border-color: rgba(50,143,255,.55); color: var(--hielo); }
     .nav-cta:hover { background: var(--digital); border-color: var(--digital); }
     .hamburguesa { display: none; background: none; border: 0; cursor: pointer; padding: 8px; position: relative; z-index: 42; }
-    .hamburguesa span { display: block; width: 22px; height: 2px; background: var(--hielo); margin: 5px 0; transition: .3s; border-radius: 2px; }
+    .hamburguesa span { display: block; width: 22px; height: 2px; background: var(--sup); margin: 5px 0; transition: .3s; border-radius: 2px; }
 
     /* =========================================================
        INICIO
@@ -204,7 +209,7 @@
     .sobre-foto::before { content: ""; position: absolute; width: 140px; height: 140px; left: -26px; top: -26px; border-radius: 50%; border: 1px dashed rgba(50,143,255,.4); z-index: -1; }
     .sobre-texto p { color: var(--tinta-2); font-size: 1.04rem; margin-top: 18px; }
     .cita-rectora {
-      margin-top: 30px; padding: 24px 26px; border-radius: 18px; background: var(--blanco); border: 1px solid var(--linea);
+      margin-top: 30px; padding: 24px 26px; border-radius: 18px; background: var(--sup-2); border: 1px solid var(--linea);
       font-family: var(--titulo); font-size: clamp(1.08rem, 1.6vw, 1.24rem); font-weight: 500; color: var(--tinta); line-height: 1.5; position: relative;
     }
     .cita-rectora::before { content: "“"; position: absolute; top: -18px; left: 20px; font-size: 4rem; line-height: 1; color: var(--digital); font-weight: 700; }
@@ -219,19 +224,19 @@
     .ia-usos > span { font-size: .78rem; font-weight: 500; padding: 5px 11px; border-radius: 999px; border: 1px solid var(--vidrio-borde); color: #DCE4EE; }
     .ia-usos > span:last-child { border-color: rgba(197,155,175,.5); color: #E2C6D3; }
     .rasgos { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-    .rasgo { padding: 9px 16px; border-radius: 999px; background: var(--blanco); border: 1px solid var(--linea); font-family: var(--titulo); font-weight: 600; font-size: .88rem; display: inline-flex; align-items: center; gap: 8px; }
+    .rasgo { padding: 9px 16px; border-radius: 999px; background: var(--sup-2); border: 1px solid var(--linea); font-family: var(--titulo); font-weight: 600; font-size: .88rem; display: inline-flex; align-items: center; gap: 8px; }
     .rasgo::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--rosa); }
 
     /* =========================================================
        COMPETENCIAS
        ========================================================= */
-    #competencias { background: var(--blanco); }
+    #competencias { background: var(--sup-2); }
     .competencias { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
     .competencia {
-      border: 1px solid var(--linea); border-radius: var(--radio); padding: 28px 24px; background: var(--hielo);
+      border: 1px solid var(--linea); border-radius: var(--radio); padding: 28px 24px; background: var(--sup);
       transition: transform .4s, box-shadow .4s, border-color .4s, background .4s;
     }
-    .competencia:hover { transform: translateY(-6px); box-shadow: var(--sombra); background: var(--blanco); border-color: #CFDCEC; }
+    .competencia:hover { transform: translateY(-6px); box-shadow: var(--sombra); background: var(--sup-2); border-color: #CFDCEC; }
     .competencia.destacada { background: var(--noche); color: var(--hielo); border-color: var(--noche); }
     .icono { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: rgba(50,143,255,.1); color: var(--digital); margin-bottom: 22px; }
     .icono svg { width: 24px; height: 24px; }
@@ -285,7 +290,7 @@
     .linea-tiempo::before { content: ""; position: absolute; left: 7px; top: 10px; bottom: 10px; width: 1.5px; background: linear-gradient(var(--digital), var(--linea)); }
     .hito { position: relative; padding-bottom: 34px; }
     .hito:last-child { padding-bottom: 0; }
-    .hito::before { content: ""; position: absolute; left: -34px; top: 7px; width: 16px; height: 16px; border-radius: 50%; background: var(--hielo); border: 2px solid var(--digital); }
+    .hito::before { content: ""; position: absolute; left: -34px; top: 7px; width: 16px; height: 16px; border-radius: 50%; background: var(--sup); border: 2px solid var(--digital); }
     .hito.actual::before { background: var(--digital); box-shadow: 0 0 0 6px rgba(50,143,255,.15); }
     .fecha { font-family: var(--titulo); font-size: .76rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--digital); }
     .hito h3 { font-family: var(--titulo); font-weight: 700; font-size: 1.18rem; line-height: 1.3; margin-top: 4px; }
@@ -295,7 +300,7 @@
     .hito li::before { content: ""; position: absolute; left: 0; top: 11px; width: 7px; height: 1.5px; background: var(--plata); }
 
     .lateral { display: grid; gap: 18px; position: sticky; top: 100px; }
-    .caja { border-radius: var(--radio); padding: 28px; background: var(--blanco); border: 1px solid var(--linea); }
+    .caja { border-radius: var(--radio); padding: 28px; background: var(--sup-2); border: 1px solid var(--linea); }
     .caja.noche { background: var(--noche); color: var(--hielo); border-color: var(--noche); }
     .caja small { font-family: var(--titulo); font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--digital); }
     .caja h3 { font-family: var(--titulo); font-weight: 700; font-size: 1.22rem; line-height: 1.3; margin: 10px 0 6px; }
@@ -310,14 +315,14 @@
     .cert span.inst { font-size: .78rem; color: var(--tinta-2); }
     .cvs { display: grid; gap: 10px; margin-top: 20px; }
     .caja .btn { width: 100%; justify-content: center; }
-    .caja .btn small { font-size: .66rem; font-weight: 700; letter-spacing: .08em; padding: 2px 6px; border-radius: 5px; background: var(--hielo); color: var(--tinta-2); }
+    .caja .btn small { font-size: .66rem; font-weight: 700; letter-spacing: .08em; padding: 2px 6px; border-radius: 5px; background: var(--sup); color: var(--tinta-2); }
 
     /* =========================================================
        MÁS ALLÁ DE MÍ
        ========================================================= */
-    #mas-alla { background: var(--blanco); }
+    #mas-alla { background: var(--sup-2); }
     .mas-alla { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .interes { border-radius: var(--radio); padding: 30px 26px; background: var(--hielo); border: 1px solid var(--linea); transition: transform .4s; }
+    .interes { border-radius: var(--radio); padding: 30px 26px; background: var(--sup); border: 1px solid var(--linea); transition: transform .4s; }
     .interes:hover { transform: translateY(-4px); }
     .interes .icono { background: rgba(197,155,175,.18); color: #A0718A; }
     .interes h3 { font-family: var(--titulo); font-weight: 700; font-size: 1.15rem; margin-bottom: 8px; }
@@ -346,7 +351,7 @@
     .pie { margin-top: 96px; padding-top: 26px; border-top: 1px solid var(--vidrio-borde); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: .8rem; color: var(--plata); text-align: left; }
     .pie b { color: var(--hielo); font-weight: 500; }
 
-    .aviso { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 120px); background: var(--hielo); color: var(--noche); padding: 11px 20px; border-radius: 999px; font: 600 .88rem var(--titulo); z-index: 60; transition: transform .4s; box-shadow: var(--sombra); }
+    .aviso { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 120px); background: var(--sup); color: var(--noche); padding: 11px 20px; border-radius: 999px; font: 600 .88rem var(--titulo); z-index: 60; transition: transform .4s; box-shadow: var(--sombra); }
     .aviso { visibility: hidden; }
     .aviso.ver { transform: translate(-50%, 0); visibility: visible; }
 
@@ -385,11 +390,11 @@
     /* =========================================================
        CÓMO TRABAJO (proceso numerado)
        ========================================================= */
-    #proceso { background: var(--blanco); }
+    #proceso { background: var(--sup-2); }
     .pasos { list-style: none; display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; counter-reset: paso; position: relative; }
     .pasos::before { content: ""; position: absolute; top: 27px; left: 28px; right: 28px; height: 1.5px; background: repeating-linear-gradient(90deg, var(--plata) 0 6px, transparent 6px 12px); opacity: .55; }
     .paso { position: relative; counter-increment: paso; }
-    .paso::before { content: counter(paso, decimal-leading-zero); position: relative; z-index: 1; display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--blanco); border: 1.5px solid var(--linea); font-family: var(--titulo); font-weight: 700; font-size: 1rem; color: var(--digital); margin-bottom: 20px; transition: background .4s, color .4s, border-color .4s; }
+    .paso::before { content: counter(paso, decimal-leading-zero); position: relative; z-index: 1; display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--sup-2); border: 1.5px solid var(--linea); font-family: var(--titulo); font-weight: 700; font-size: 1rem; color: var(--digital); margin-bottom: 20px; transition: background .4s, color .4s, border-color .4s; }
     .paso:hover::before { background: var(--digital); color: var(--blanco); border-color: var(--digital); }
     .paso h3 { font-family: var(--titulo); font-weight: 700; font-size: 1.05rem; line-height: 1.3; margin-bottom: 8px; }
     .paso p { font-size: .9rem; color: var(--tinta-2); }
@@ -465,12 +470,12 @@
 
 
     /* Campaña Fidélitas */
-    .campana { margin-top: 22px; display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(24px, 4vw, 48px); align-items: center; padding: clamp(26px, 3.5vw, 40px); border-radius: 26px; background: var(--hielo); border: 1px solid var(--linea); }
+    .campana { margin-top: 22px; display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(24px, 4vw, 48px); align-items: center; padding: clamp(26px, 3.5vw, 40px); border-radius: 26px; background: var(--sup); border: 1px solid var(--linea); }
     .campana-texto { min-width: 0; }
     .campana .tipo { color: #A0718A; }
     .campana h3 { font-family: var(--titulo); font-weight: 700; font-size: clamp(1.35rem, 2.3vw, 1.75rem); line-height: 1.2; margin: 8px 0 12px; text-wrap: balance; }
     .campana p { color: var(--tinta-2); font-size: .98rem; }
-    .herramientas.claro > span { border-color: var(--linea); color: var(--tinta-2); background: var(--blanco); }
+    .herramientas.claro > span { border-color: var(--linea); color: var(--tinta-2); background: var(--sup-2); }
     .campana-fotos { display: grid; grid-template-columns: 1.3fr 1fr; grid-template-rows: 1fr 1fr; gap: 10px; }
     .campana-fotos img { width: 100%; height: 100%; object-fit: cover; border-radius: 14px; min-height: 0; }
     .campana-fotos img:first-child { grid-row: 1 / 3; aspect-ratio: 3 / 4; object-position: 40% center; }
@@ -480,9 +485,9 @@
 
 
     /* Certificaciones */
-    #certificaciones { background: var(--blanco); }
+    #certificaciones { background: var(--sup-2); }
     .grupos-cert { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; align-items: start; }
-    .grupo-cert { border: 1px solid var(--linea); border-radius: var(--radio); padding: 24px 26px; background: var(--hielo); }
+    .grupo-cert { border: 1px solid var(--linea); border-radius: var(--radio); padding: 24px 26px; background: var(--sup); }
     .grupo-cert h3 { display: flex; align-items: center; gap: 12px; font-family: var(--titulo); font-weight: 700; font-size: 1.08rem; margin-bottom: 8px; }
     .grupo-cert h3 i { margin-left: auto; font-style: normal; font-size: .76rem; font-weight: 700; color: var(--digital); background: rgba(50,143,255,.1); border-radius: 999px; padding: 2px 10px; }
     .icono-min { flex: none; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: rgba(50,143,255,.1); color: var(--digital); }
@@ -498,7 +503,7 @@
     .k-cert { background: rgba(50,143,255,.12); color: #1F6FD1; }
     .k-curso { background: rgba(170,183,200,.25); color: #56657A; }
     .k-part { background: rgba(197,155,175,.2); color: #8F5F75; }
-    .resumen-cert { display: flex; align-items: center; gap: 14px; margin-top: 16px; padding: 14px 16px; border-radius: 14px; background: var(--hielo); text-decoration: none; color: var(--tinta); transition: background .3s; }
+    .resumen-cert { display: flex; align-items: center; gap: 14px; margin-top: 16px; padding: 14px 16px; border-radius: 14px; background: var(--sup); text-decoration: none; color: var(--tinta); transition: background .3s; }
     .resumen-cert:hover { background: #E8EFF8; }
     .resumen-cert b { font-family: var(--titulo); font-size: 1.8rem; font-weight: 800; color: var(--digital); line-height: 1; }
     .resumen-cert > span { font-size: .86rem; color: var(--tinta-2); line-height: 1.4; }
@@ -538,7 +543,7 @@
 
     /* ======== HABILIDADES: radar + pestañas ======== */
     .habilidades { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 22px; align-items: stretch; }
-    .radar-card { border: 1px solid var(--linea); border-radius: var(--radio); background: var(--hielo); padding: 18px 18px 14px; display: flex; flex-direction: column; justify-content: center; }
+    .radar-card { border: 1px solid var(--linea); border-radius: var(--radio); background: var(--sup); padding: 18px 18px 14px; display: flex; flex-direction: column; justify-content: center; }
     #radar { width: 100%; height: auto; max-width: 470px; margin: 0 auto; overflow: visible; }
     #radar .anillo { fill: none; stroke: #D7E0EB; stroke-width: 1; }
     #radar .eje { stroke: #D7E0EB; stroke-width: 1; }
@@ -555,9 +560,9 @@
     #radar .grupo-eje:focus-visible { outline: none; }
     #radar .grupo-eje:focus-visible .etiqueta { fill: var(--digital); text-decoration: underline; }
     .radar-nota { text-align: center; font-size: .8rem; color: var(--tinta-2); margin-top: 6px; }
-    .habilidad-panel { border: 1px solid var(--linea); border-radius: var(--radio); background: var(--blanco); padding: 22px; display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+    .habilidad-panel { border: 1px solid var(--linea); border-radius: var(--radio); background: var(--sup-2); padding: 22px; display: flex; flex-direction: column; gap: 18px; min-width: 0; }
     .tabs { display: flex; flex-wrap: wrap; gap: 8px; }
-    .tabs button { border: 1px solid var(--linea); background: var(--hielo); color: var(--tinta-2); font: 600 .84rem var(--titulo); padding: 8px 14px; border-radius: 999px; cursor: pointer; transition: background .25s, color .25s, border-color .25s; }
+    .tabs button { border: 1px solid var(--linea); background: var(--sup); color: var(--tinta-2); font: 600 .84rem var(--titulo); padding: 8px 14px; border-radius: 999px; cursor: pointer; transition: background .25s, color .25s, border-color .25s; }
     .tabs button:hover { border-color: var(--digital); color: var(--tinta); }
     .tabs button[aria-selected="true"] { background: var(--noche); color: var(--hielo); border-color: var(--noche); }
     .panel { animation: aparecerPanel .45s ease both; }
@@ -571,14 +576,14 @@
     @keyframes llenar { from { transform: scaleX(0); transform-origin: left; } to { transform: none; } }
     .medidor span { font-size: .82rem; color: var(--tinta-2); font-weight: 500; }
     .herr { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 18px; }
-    .herr li { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; background: var(--hielo); font-size: .9rem; font-weight: 500; }
+    .herr li { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; background: var(--sup); font-size: .9rem; font-weight: 500; }
 
     /* ======== DEMO DE DATOS ======== */
-    #demo { background: var(--hielo); }
-    .tablero { border-radius: 24px; background: var(--blanco); border: 1px solid var(--linea); box-shadow: var(--sombra); padding: clamp(18px, 3vw, 30px); display: grid; gap: 20px; }
+    #demo { background: var(--sup); }
+    .tablero { border-radius: 24px; background: var(--sup-2); border: 1px solid var(--linea); box-shadow: var(--sombra); padding: clamp(18px, 3vw, 30px); display: grid; gap: 20px; }
     .tablero-barra { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; }
     .filtros { display: flex; flex-wrap: wrap; gap: 8px; }
-    .filtros button { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--linea); background: var(--blanco); color: var(--tinta-2); font: 600 .84rem var(--titulo); padding: 8px 14px; border-radius: 999px; cursor: pointer; transition: background .25s, color .25s, border-color .25s; }
+    .filtros button { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--linea); background: var(--sup-2); color: var(--tinta-2); font: 600 .84rem var(--titulo); padding: 8px 14px; border-radius: 999px; cursor: pointer; transition: background .25s, color .25s, border-color .25s; }
     .filtros button:hover { border-color: var(--digital); color: var(--tinta); }
     .filtros button[aria-pressed="true"] { background: var(--noche); border-color: var(--noche); color: var(--hielo); }
     .filtros button i { font-style: normal; display: inline-block; width: 10px; height: 10px; border-radius: 3px; }
@@ -588,7 +593,7 @@
     .filtros-cert .f-ver { border-color: rgba(74,222,155,.5); }
     .aviso-datos { font-size: .74rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #8F5F75; background: rgba(197,155,175,.18); padding: 5px 10px; border-radius: 8px; font-family: var(--titulo); }
     .kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-    .kpi { border-radius: 16px; background: var(--hielo); padding: 16px 18px; }
+    .kpi { border-radius: 16px; background: var(--sup); padding: 16px 18px; }
     .kpi small { display: block; font-size: .78rem; color: var(--tinta-2); font-weight: 500; }
     .kpi b { display: block; font-family: var(--titulo); font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 800; line-height: 1.15; margin-top: 4px; font-variant-numeric: tabular-nums; }
     .kpi > span { font-size: .78rem; color: var(--tinta-2); }
@@ -657,12 +662,12 @@
     .tesis strong { font-weight: 700; color: var(--hielo); }
     .inicio .propuesta { margin-top: 18px; }
     #proyectos { border-top: 1px solid var(--vidrio-borde); background: linear-gradient(180deg, #0C1A30, var(--noche) 40%); }
-    #competencias { background: var(--blanco); }
-    #proceso.pegado { background: var(--blanco); padding-top: 0; }
-    #experiencia { background: var(--hielo); }
-    #certificaciones { background: var(--blanco); }
-    #sobre-mi { background: var(--hielo); }
-    #mas-alla { background: var(--blanco); }
+    #competencias { background: var(--sup-2); }
+    #proceso.pegado { background: var(--sup-2); padding-top: 0; }
+    #experiencia { background: var(--sup); }
+    #certificaciones { background: var(--sup-2); }
+    #sobre-mi { background: var(--sup); }
+    #mas-alla { background: var(--sup-2); }
     .cv-flotante { display: none; }
     @media (max-width: 760px) {
       .cv-flotante { position: fixed; z-index: 45; left: 50%; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 140%); display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 999px; background: var(--digital); color: var(--blanco); font: 700 .92rem var(--titulo); text-decoration: none; box-shadow: 0 14px 30px -10px rgba(50,143,255,.8); transition: transform .4s cubic-bezier(.2,.7,.2,1); }
@@ -703,7 +708,7 @@
     .tarjeta-foto.compu { grid-column: span 4; min-height: 290px; }
     .tarjeta-foto.compu img { position: absolute; inset: 0; object-position: center 30%; }
     .mini-tarjetas { grid-column: span 3; display: grid; gap: 12px; align-content: stretch; }
-    .mini { display: flex; gap: 12px; align-items: flex-start; padding: 16px; border-radius: 18px; background: var(--hielo); border: 1px solid var(--linea); transition: transform .4s, border-color .4s; }
+    .mini { display: flex; gap: 12px; align-items: flex-start; padding: 16px; border-radius: 18px; background: var(--sup); border: 1px solid var(--linea); transition: transform .4s, border-color .4s; }
     .mini:hover { transform: translateY(-3px); border-color: var(--rosa); }
     .mini-ic { flex: none; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: rgba(197,155,175,.2); color: #A0718A; }
     .mini-ic svg { width: 18px; height: 18px; }
@@ -721,6 +726,157 @@
       .tarjeta-foto.compu { aspect-ratio: 4 / 4.4; min-height: 0; }
     }
     @media (prefers-reduced-motion: reduce) { .tarjeta-foto:hover img { transform: none; } }
+
+    /* =========================================================
+       TEMA "LUJO NOCTURNO"
+       ========================================================= */
+    html, body { background: #081222; }
+    body { color: var(--tinta); }
+    body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .5;
+      background: radial-gradient(900px 600px at 85% -10%, rgba(197,155,175,.10), transparent 60%), radial-gradient(800px 700px at -10% 60%, rgba(50,143,255,.06), transparent 60%); }
+    main, footer, section, header { position: relative; z-index: 1; }
+    #competencias, #certificaciones, #mas-alla { background: #0A1528; }
+    #proceso.pegado, #experiencia, #sobre-mi { background: #081222; }
+    #proyectos, #contenido-ia { background: linear-gradient(180deg, #0C1A30, #081222); }
+    section + section { border-top: 1px solid rgba(217,184,143,.10); }
+    h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em; line-height: 1.08; font-size: clamp(2.3rem, 5vw, 3.6rem); }
+    h2 .suave { font-style: italic; font-weight: 400; color: var(--rosa-claro); }
+    .ojo { color: var(--oro); letter-spacing: .28em; }
+    .ojo::before { background: linear-gradient(90deg, transparent, var(--oro)); width: 40px; }
+    .bajada { color: var(--tinta-2); }
+    .inicio h1.nombre { font-family: var(--serif); font-weight: 400; letter-spacing: -.02em; font-size: clamp(3rem, 7vw, 5.6rem); line-height: 1; }
+    .inicio h1.nombre .paz { font-style: italic; font-weight: 400; background: linear-gradient(100deg, #F1D6E2, #C59BAF 60%, #D9B88F); -webkit-background-clip: text; background-clip: text; }
+    .tesis { font-family: var(--serif); font-weight: 400; font-style: italic; color: #DCE4EE; }
+    .tesis strong { font-style: normal; font-weight: 500; color: var(--oro); }
+    .linea-intro { color: var(--oro); letter-spacing: .26em; }
+    .linea-intro::before { background: var(--oro); }
+    .proyecto h3, .ia-card h3, .destacado h3, .campana h3, .tarjeta-foto figcaption h3, .grupo-cert h3 span, .competencia h3, .hito h3, .caja h3, .paso h3 { font-family: var(--serif); font-weight: 500; letter-spacing: 0; }
+    .contacto h2 { font-size: clamp(2.6rem, 6vw, 4.6rem); }
+    .dato b { font-family: var(--serif); font-weight: 500; }
+    .dato b em { color: var(--oro); font-style: normal; }
+    .btn-primario { background: linear-gradient(110deg, #2F7FE0 0%, #6A8FD8 45%, #C59BAF 100%); color: #fff; box-shadow: 0 14px 34px -14px rgba(197,155,175,.7); border: 0; }
+    .btn-primario:hover { filter: brightness(1.08); background: linear-gradient(110deg, #2F7FE0 0%, #6A8FD8 45%, #C59BAF 100%); }
+    .btn-fantasma { border-color: rgba(217,184,143,.45); }
+    .btn-fantasma:hover { border-color: var(--oro); background: rgba(217,184,143,.08); }
+    .btn-claro { background: transparent; color: var(--tinta); border-color: rgba(217,184,143,.4); }
+    .btn-claro:hover { border-color: var(--oro); background: rgba(217,184,143,.08); }
+    .btn-claro small { background: rgba(217,184,143,.15) !important; color: var(--oro) !important; }
+    .nav-cta { border-color: rgba(217,184,143,.5); }
+    .nav-cta:hover { background: rgba(217,184,143,.12); border-color: var(--oro); }
+    .competencia, .grupo-cert, .caja, .mini, .campana, .radar-card, .habilidad-panel, .interes { background: linear-gradient(160deg, rgba(255,255,255,.045), rgba(255,255,255,.015)); border-color: rgba(217,184,143,.14); }
+    .competencia:hover, .grupo-cert:hover, .mini:hover { border-color: rgba(217,184,143,.45); background: linear-gradient(160deg, rgba(255,255,255,.07), rgba(255,255,255,.02)); }
+    .caja.noche, .competencia.destacada { background: linear-gradient(160deg, rgba(197,155,175,.16), rgba(50,143,255,.06)); border-color: rgba(226,198,211,.35); }
+    .tabs button, .filtros button { background: transparent; color: var(--tinta-2); border-color: rgba(217,184,143,.22); }
+    .tabs button[aria-selected="true"], .filtros button[aria-pressed="true"] { background: linear-gradient(110deg, rgba(197,155,175,.9), rgba(217,184,143,.9)); color: #1A0F17; border-color: transparent; }
+    .filtros-cert button[aria-pressed="true"] i { background: rgba(26,15,23,.15); color: #1A0F17; }
+    .herr li, .resumen-cert, .kpi { background: rgba(255,255,255,.04); }
+    .resumen-cert { color: var(--tinta); }
+    .resumen-cert:hover { background: rgba(255,255,255,.07); }
+    .resumen-cert b, .resumen-cert svg { color: var(--oro); }
+    .medidor .barras i { background: rgba(255,255,255,.1); }
+    .medidor .barras i.lleno { background: linear-gradient(90deg, #6A8FD8, #C59BAF); }
+    .o-trabajo { background: rgba(50,143,255,.16); color: #9CC6FF; }
+    .o-u { background: rgba(197,155,175,.18); color: #EBC9D8; }
+    .o-aprendo { background: rgba(170,183,200,.14); color: #C9D3E0; }
+    .k-ver { background: rgba(74,222,155,.14); color: #7FE3B4; }
+    .k-cert { background: rgba(50,143,255,.16); color: #9CC6FF; }
+    .k-curso { background: rgba(170,183,200,.14); color: #C9D3E0; }
+    .k-part { background: rgba(197,155,175,.18); color: #EBC9D8; }
+    .grupo-cert h3 i { background: rgba(217,184,143,.15); color: var(--oro); }
+    .icono-min, .icono { background: rgba(217,184,143,.12); color: var(--oro); }
+    .mini-ic { background: rgba(197,155,175,.16); color: var(--rosa-claro); }
+    .campana .tipo { color: var(--rosa-claro); }
+    .herramientas.claro > span { background: transparent; border-color: rgba(217,184,143,.25); color: var(--tinta-2); }
+    .rasgo { background: transparent; border-color: rgba(217,184,143,.3); color: var(--tinta); }
+    .rasgo::before { background: var(--oro); }
+    .cita-rectora { background: linear-gradient(160deg, rgba(197,155,175,.12), rgba(255,255,255,.02)); border-color: rgba(226,198,211,.25); color: var(--tinta); font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(1.2rem, 1.9vw, 1.5rem); }
+    .cita-rectora::before { color: var(--oro); font-family: var(--serif); }
+    .linea-tiempo::before, .linea-tiempo.viva::before { background: rgba(217,184,143,.18); }
+    .viva .hito::before { background: #081222; border-color: rgba(217,184,143,.5); }
+    .viva .hito.encendido::before { background: var(--oro); border-color: var(--oro); box-shadow: 0 0 0 6px rgba(217,184,143,.15); }
+    .viva .hito-meta { background: rgba(217,184,143,.05); border-color: rgba(217,184,143,.35); }
+    .riel-vivo i { background: linear-gradient(var(--rosa), var(--oro)); }
+    .fecha { color: var(--oro); }
+    .paso::before { background: #0A1528; border-color: rgba(217,184,143,.35); color: var(--oro); font-family: var(--serif); font-weight: 500; }
+    .paso:hover::before { background: var(--oro); color: #1A0F17; border-color: var(--oro); }
+    .pasos::before { background: repeating-linear-gradient(90deg, rgba(217,184,143,.45) 0 6px, transparent 6px 12px); }
+    #radar .anillo, #radar .eje { stroke: rgba(217,184,143,.18); }
+    #radar .area { fill: rgba(197,155,175,.18); stroke: var(--rosa-claro); }
+    #radar .punto { fill: #081222; stroke: var(--rosa-claro); }
+    #radar .grupo-eje.activo .punto { fill: var(--oro); stroke: var(--oro); }
+    #radar .etiqueta { fill: #C9D3E0; }
+    #radar .grupo-eje:hover .etiqueta, #radar .grupo-eje.activo .etiqueta { fill: var(--oro); }
+    #radar .nivel-txt { fill: #8C99AC; }
+    nav.solido { background: rgba(8,18,34,.82); box-shadow: 0 1px 0 rgba(217,184,143,.15); }
+    .menu a::after { background: var(--oro); }
+    .idioma button[aria-pressed="true"] { background: linear-gradient(110deg, #F1D6E2, #D9B88F); color: #1A0F17; }
+    .franja-pista span::after { background: var(--oro); }
+    .retrato::before { border-color: rgba(217,184,143,.35); }
+    .retrato-marco { border-color: rgba(217,184,143,.3); }
+    .proyecto { border-color: rgba(217,184,143,.16); }
+    .proyecto:hover { border-color: rgba(217,184,143,.5); }
+    .proyecto.estrella { border-color: rgba(226,198,211,.35); }
+    .enlace-proyecto { color: var(--oro); border-color: rgba(217,184,143,.45); }
+    .tipo { color: var(--oro); }
+    .correo-hero svg { color: var(--oro); }
+    .correo-hero a { border-color: rgba(217,184,143,.6); }
+    .pie-grande h4 { color: var(--oro); }
+    .tarjeta-foto { border: 1px solid rgba(217,184,143,.18); }
+    .cv-flotante { background: linear-gradient(110deg, #2F7FE0, #C59BAF) !important; }
+    .caja.noche small { color: var(--rosa-claro); }
+    ::selection { background: var(--rosa); color: #081222; }
+
+    .otro-idioma { font-size: .82rem; color: var(--tinta-2); text-align: center; margin-top: 4px; }
+    .otro-idioma a { color: var(--oro); }
+
+
+    /* Proyectos con código */
+    .proyecto.codigo { padding: 0; overflow: hidden; }
+    .codigo-media { position: relative; height: 220px; overflow: hidden; }
+    .codigo-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s cubic-bezier(.2,.7,.2,1); }
+    .proyecto.codigo:hover .codigo-media img { transform: scale(1.04); }
+    .codigo-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 50%, rgba(9,20,38,.55)); pointer-events: none; }
+    .lenguaje { position: absolute; left: 18px; bottom: 16px; z-index: 2; font: 600 .74rem var(--titulo); letter-spacing: .12em; text-transform: uppercase; color: #fff; padding: 6px 12px; border-radius: 999px; background: rgba(9,20,38,.55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.25); }
+    .codigo-cuerpo { padding: clamp(24px, 3vw, 32px); display: flex; flex-direction: column; flex: 1; }
+    .sql-media { background: radial-gradient(400px 200px at 80% 0%, rgba(197,155,175,.25), transparent 70%), linear-gradient(150deg, #0E2142, #091426); padding: 22px 22px 0; }
+    .sql-cifras { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .sql-cifras div { border: 1px solid rgba(170,183,200,.18); border-radius: 12px; padding: 10px 12px; font-size: .74rem; color: var(--plata); background: rgba(255,255,255,.03); }
+    .sql-cifras b { display: block; font-family: var(--titulo); font-size: 1.5rem; color: #fff; line-height: 1.1; }
+    .sql-codigo { margin-top: 14px; font: .72rem/1.8 'JetBrains Mono', ui-monospace, monospace; color: #C9D3E0; white-space: pre; overflow: hidden; }
+    .sql-codigo .k { color: #8EC0FF; }
+    .ver-codigo svg { width: 17px; height: 17px; }
+    .proyectos { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+    .proyectos > .proyecto { grid-column: span 2; }
+    .proyectos > .proyecto.codigo { grid-column: span 3; }
+    .proyectos > .proyecto.estrella { grid-column: 1 / -1; }
+    .ficha { align-content: start; }
+    .proyectos > .proyecto:not(.codigo):not(.estrella) .ficha div { grid-template-columns: 1fr; gap: 2px; }
+    .proyectos > .proyecto:not(.codigo):not(.estrella) .herramientas { margin-top: auto; padding-top: 22px; }
+    @media (max-width: 1040px) { .proyectos > .proyecto { grid-column: span 3; } .proyectos > .proyecto:last-child { grid-column: 1 / -1; } }
+    @media (max-width: 900px) { .proyectos { grid-template-columns: 1fr; } .proyectos > .proyecto, .proyectos > .proyecto.codigo, .proyectos > .proyecto:last-child { grid-column: auto; } }
+    @media (max-width: 600px) { .sql-cifras { grid-template-columns: repeat(2, 1fr); } .sql-codigo { display: none; } .codigo-media { height: 190px; } }
+
+
+    /* Credenciales y recomendaciones */
+    .ver-cred { display: inline-block; margin-top: 4px; font: 600 .76rem var(--titulo); color: var(--digital); text-decoration: none; border-bottom: 1px solid rgba(50,143,255,.35); }
+    .ver-cred:hover { border-color: var(--digital); }
+    .grupo-cert li > div > span { display: block; }
+    #recomendaciones { background: var(--sup-2, #0C1930); }
+    .recs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .rec { margin: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 26px; padding: 30px 28px; border-radius: var(--radio); background: linear-gradient(160deg, rgba(255,255,255,.05), rgba(255,255,255,.015)); border: 1px solid rgba(217,184,143,.16); position: relative; }
+    .rec::before { content: "“"; position: absolute; top: 6px; right: 22px; font-family: var(--serif, Georgia); font-size: 5rem; line-height: 1; color: rgba(197,155,175,.35); }
+    .rec blockquote { margin: 0; font-family: var(--serif, Georgia); font-style: italic; font-size: 1.12rem; line-height: 1.6; color: var(--tinta); }
+    .rec figcaption { display: flex; gap: 14px; align-items: center; padding-top: 18px; border-top: 1px solid rgba(217,184,143,.14); }
+    .rec .ini { flex: none; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; font: 700 .9rem var(--titulo); color: #1A0F17; background: linear-gradient(135deg, #F1D6E2, #D9B88F); }
+    .rec b { display: block; font-size: .95rem; color: var(--tinta); }
+    .rec figcaption span:not(.ini) { font-size: .82rem; color: var(--tinta-2); line-height: 1.45; }
+    .recs-pie { margin-top: 22px; font-size: .9rem; color: var(--tinta-2); }
+    .recs-pie a { color: var(--oro, #D9B88F); }
+    @media (max-width: 900px) { .recs { grid-template-columns: 1fr; } }
+
+
+    .logo-contacto { display: block; height: clamp(90px, 12vw, 140px); width: auto; margin: 0 auto 30px; filter: drop-shadow(0 10px 30px rgba(50,143,255,.25)); }
+    .logo-mpg { height: 40px; }
 
     /* =========================================================
        RESPONSIVE
@@ -894,6 +1050,48 @@
           </div>
         </article>
 
+        <article class="proyecto codigo aparece">
+          <div class="codigo-media"><img src="proy-griffin.jpg" alt="Lámparas de la tienda en línea Griffin Lamps" width="1024" height="683" loading="lazy"><span class="lenguaje">Java · Spring Boot</span></div>
+          <div class="codigo-cuerpo">
+            <div class="proyecto-cabeza">
+              <div><span class="tipo"><span class="es">Desarrollo web · Curso universitario</span><span class="en">Web development · University course</span></span><h3>Griffin Lamps</h3></div>
+            </div>
+            <dl class="ficha">
+              <div><dt><span class="es">Reto</span><span class="en">Challenge</span></dt><dd><span class="es">Una tienda en línea completa, propuesta para un cliente que vende lámparas.</span><span class="en">A complete online store, proposed for a client that sells lamps.</span></dd></div>
+              <div><dt><span class="es">Lo que tiene</span><span class="en">Features</span></dt><dd><span class="es">Catálogo y colecciones, carrito y pedidos, registro e inicio de sesión con roles, panel de administración, correos automáticos e imágenes en la nube. Disponible en varios idiomas.</span><span class="en">Catalog and collections, cart and orders, sign-up and login with roles, admin panel, automatic emails and cloud images. Available in several languages.</span></dd></div>
+            </dl>
+            <div class="herramientas"><span>Java</span><span>Spring Boot</span><span>Spring Security</span><span>MySQL</span><span>JPA</span><span>Thymeleaf</span><span>Bootstrap</span><span>Firebase</span></div>
+            <a class="enlace-proyecto ver-codigo" href="https://github.com/Pazy03/Griffin-Lamps" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg><span class="es">Ver código en GitHub</span><span class="en">View code on GitHub</span></a>
+          </div>
+        </article>
+
+        <article class="proyecto codigo aparece">
+          <div class="codigo-media sql-media" aria-hidden="true">
+            <div class="sql-cifras">
+              <div><b>24</b><span class="es">tablas</span><span class="en">tables</span></div>
+              <div><b>17</b><span class="es">paquetes</span><span class="en">packages</span></div>
+              <div><b>9</b>triggers</div>
+              <div><b>9</b><span class="es">vistas</span><span class="en">views</span></div>
+            </div>
+<pre class="sql-codigo"><span class="k">CREATE OR REPLACE VIEW</span> VW_INVENTARIO <span class="k">AS</span> …
+<span class="k">CREATE OR REPLACE TRIGGER</span> TRG_VALIDAR_PRECIOS_PRODUCTO …
+<span class="k">CREATE OR REPLACE PACKAGE</span> PK_VENTAS …</pre>
+            <span class="lenguaje">Python · Oracle SQL</span>
+          </div>
+          <div class="codigo-cuerpo">
+            <div class="proyecto-cabeza">
+              <div><span class="tipo"><span class="es">Bases de datos · Proyecto en equipo</span><span class="en">Databases · Team project</span></span><h3><span class="es">Ferretería Pejivalle</span><span class="en">Pejivalle Hardware Store</span></h3></div>
+            </div>
+            <dl class="ficha">
+              <div><dt><span class="es">Reto</span><span class="en">Challenge</span></dt><dd><span class="es">Un sistema de gestión para una ferretería con varias sucursales.</span><span class="en">A management system for a hardware store with several branches.</span></dd></div>
+              <div><dt><span class="es">Lo que tiene</span><span class="en">Features</span></dt><dd><span class="es">Base de datos Oracle con paquetes, triggers de validación y vistas de reportes, y una aplicación de escritorio para gestionar clientes, productos, inventario, ventas, devoluciones y trabajadores.</span><span class="en">An Oracle database with packages, validation triggers and reporting views, plus a desktop app to manage customers, products, inventory, sales, returns and staff.</span></dd></div>
+            </dl>
+            <div class="herramientas"><span>Oracle SQL</span><span>PL/SQL</span><span>Python</span><span>Tkinter</span><span><span class="es">Patrón DAO</span><span class="en">DAO pattern</span></span></div>
+            <a class="enlace-proyecto ver-codigo" href="https://github.com/Pazy03/Proyecto_Ferreteria_Pejivalle" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg><span class="es">Ver código en GitHub</span><span class="en">View code on GitHub</span></a>
+          </div>
+        </article>
+
+
         <article class="proyecto aparece">
           <div class="proyecto-cabeza">
             <div><span class="tipo"><span class="es">Colaboración práctica</span><span class="en">Hands-on collaboration</span></span><h3><span class="es">CyberBalance · Sitio web y CRM</span><span class="en">CyberBalance · Website &amp; CRM</span></h3></div>
@@ -925,6 +1123,7 @@
             <div><dt><span class="es">Decisiones</span><span class="en">Decisions</span></dt><dd><span class="es">Sitio bilingüe, adaptable a celular, accesible y publicado gratis con GitHub Pages.</span><span class="en">Bilingual, mobile-ready, accessible site published for free with GitHub Pages.</span></dd></div>
           </dl>
           <div class="herramientas"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>GitHub Pages</span></div>
+          <a class="enlace-proyecto ver-codigo" href="https://github.com/Pazy03/pazy03.github.io" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg><span class="es">Ver código en GitHub</span><span class="en">View code on GitHub</span></a>
         </article>
       </div>
     </div>
@@ -1080,15 +1279,14 @@ sql  power-bi  excel  java  c#  git  crm  ia-generativa
           <div class="caja aparece">
             <small><span class="es">Mi CV</span><span class="en">My résumé</span></small>
             <h3><span class="es">Descargá la versión que buscás</span><span class="en">Download the version you need</span></h3>
-            <a class="resumen-cert" href="#certificaciones"><b>12</b><span><span class="es">certificaciones y cursos: Cisco, AWS, IBM, Scrum y más</span><span class="en">certifications and courses: Cisco, AWS, IBM, Scrum and more</span></span>
+            <a class="resumen-cert" href="#certificaciones"><b>14</b><span><span class="es">certificaciones y cursos: Cisco, AWS, IBM, Scrum y más</span><span class="en">certifications and courses: Cisco, AWS, IBM, Scrum and more</span></span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
             <div class="cvs" id="cv">
-              <a class="btn btn-claro" href="CV-Maria-Paz-Garcia-Data-EN.pdf" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
-                <span class="es">CV · Datos y BI</span><span class="en">Résumé · Data &amp; BI</span> <small>EN</small></a>
-              <a class="btn btn-claro" href="CV-Maria-Paz-Garcia-Business-EN.pdf" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
-                <span class="es">CV · Sistemas y procesos</span><span class="en">Résumé · Systems &amp; processes</span> <small>EN</small></a>
+              <a class="btn btn-claro es" href="CV-Maria-Paz-Garcia-Datos-ES.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>CV · Datos y BI <small>ES</small></a>
+              <a class="btn btn-claro es" href="CV-Maria-Paz-Garcia-Procesos-ES.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>CV · Sistemas y procesos <small>ES</small></a>
+              <a class="btn btn-claro en" href="CV-Maria-Paz-Garcia-Data-EN.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>Résumé · Data &amp; BI <small>EN</small></a>
+              <a class="btn btn-claro en" href="CV-Maria-Paz-Garcia-Business-EN.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>Résumé · Systems &amp; processes <small>EN</small></a>
+              <p class="otro-idioma"><span class="es">¿Lo necesitás en inglés? <a href="CV-Maria-Paz-Garcia-Data-EN.pdf" target="_blank" rel="noopener">Data</a> · <a href="CV-Maria-Paz-Garcia-Business-EN.pdf" target="_blank" rel="noopener">Systems</a></span><span class="en">Need it in Spanish? <a href="CV-Maria-Paz-Garcia-Datos-ES.pdf" target="_blank" rel="noopener">Datos</a> · <a href="CV-Maria-Paz-Garcia-Procesos-ES.pdf" target="_blank" rel="noopener">Procesos</a></span></p>
             </div>
           </div>
         </aside>
@@ -1105,7 +1303,7 @@ sql  power-bi  excel  java  c#  git  crm  ia-generativa
         <p class="bajada aparece"><span class="es">Certificaciones y cursos que complementan mi carrera, de Cisco, AWS, IBM, SCRUMstudy y otras instituciones.</span><span class="en">Certifications and courses that complement my degree, from Cisco, AWS, IBM, SCRUMstudy and other institutions.</span></p>
       </div>
       <div class="filtros filtros-cert aparece" id="filtros-cert" role="group" aria-label="Filtrar certificaciones">
-        <button type="button" data-f="todas" aria-pressed="true"><span class="es">Todas</span><span class="en">All</span> <i>12</i></button>
+        <button type="button" data-f="todas" aria-pressed="true"><span class="es">Todas</span><span class="en">All</span> <i>14</i></button>
         <button type="button" data-f="redes" aria-pressed="false"><span class="es">Redes y seguridad</span><span class="en">Networking &amp; security</span></button>
         <button type="button" data-f="nube" aria-pressed="false"><span class="es">Nube</span><span class="en">Cloud</span></button>
         <button type="button" data-f="agil" aria-pressed="false"><span class="es">Agilidad</span><span class="en">Agile</span></button>
@@ -1114,11 +1312,12 @@ sql  power-bi  excel  java  c#  git  crm  ia-generativa
       </div>
       <div class="grupos-cert">
         <article class="grupo-cert aparece" data-g="redes">
-          <h3><span class="icono-min"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="es">Redes y ciberseguridad</span><span class="en">Networking &amp; security</span><i>5</i></h3>
+          <h3><span class="icono-min"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="es">Redes y ciberseguridad</span><span class="en">Networking &amp; security</span><i>6</i></h3>
           <ul>
-            <li><div><b>CCNA: Introduction to Networks</b><span>Cisco Networking Academy · 2026</span></div><em class="k-ver"><span class="es">Verificada · Credly</span><span class="en">Verified · Credly</span></em></li>
-            <li><div><b>CCNA: Switching, Routing &amp; Wireless Essentials</b><span>Cisco Networking Academy · U. Fidélitas · abr 2026</span></div><em class="k-cert"><span class="es">Certificación</span><span class="en">Certification</span></em></li>
-            <li><div><b>Cybersecurity Fundamentals</b><span>IBM SkillsBuild · 2024</span></div><em class="k-ver"><span class="es">Verificada · Credly</span><span class="en">Verified · Credly</span></em></li>
+            <li><div><b>CCNA: Introduction to Networks</b><span>Cisco Networking Academy · 2026</span><a class="ver-cred" href="https://www.credly.com/badges/25e478a8-7172-4191-857e-b453c2c9ffc6/public_url" target="_blank" rel="noopener"><span class="es">Ver credencial</span><span class="en">View credential</span> ↗</a></div><em class="k-ver"><span class="es">Verificada · Credly</span><span class="en">Verified · Credly</span></em></li>
+            <li><div><b>CCNA: Switching, Routing &amp; Wireless Essentials</b><span>Cisco Networking Academy · U. Fidélitas · abr 2026</span><a class="ver-cred" href="https://www.credly.com/badges/9ba50618-0063-445d-a62e-2d9789f6d287/public_url" target="_blank" rel="noopener"><span class="es">Ver credencial</span><span class="en">View credential</span> ↗</a></div><em class="k-ver"><span class="es">Verificada · Credly</span><span class="en">Verified · Credly</span></em></li>
+            <li><div><b>Cybersecurity Fundamentals</b><span>IBM SkillsBuild · 2024</span><a class="ver-cred" href="https://www.credly.com/badges/10d96571-c8c1-49db-b15f-edb0b97b7d2f/public_url" target="_blank" rel="noopener"><span class="es">Ver credencial</span><span class="en">View credential</span> ↗</a></div><em class="k-ver"><span class="es">Verificada · Credly</span><span class="en">Verified · Credly</span></em></li>
+            <li><div><b>Introduction to IoT</b><span>Cisco Networking Academy</span><a class="ver-cred" href="https://www.credly.com/badges/b062a221-4485-4734-bd7a-a46921e0cf2a/public_url" target="_blank" rel="noopener"><span class="es">Ver credencial</span><span class="en">View credential</span> ↗</a></div><em class="k-ver"><span class="es">Verificada · Credly</span><span class="en">Verified · Credly</span></em></li>
             <li><div><b><span class="es">Fundamentos de Ciberseguridad</span><span class="en">Cybersecurity Fundamentals</span></b><span>MICITT · CECI · 2025</span></div><em class="k-part"><span class="es">Participación</span><span class="en">Participation</span></em></li>
             <li><div><b><span class="es">Fundamentos de Ciberseguridad</span><span class="en">Cybersecurity Fundamentals</span></b><span>Embajada de EE. UU. · MICITT · 2025</span></div><em class="k-curso"><span class="es">Curso</span><span class="en">Course</span></em></li>
           </ul>
@@ -1134,18 +1333,44 @@ sql  power-bi  excel  java  c#  git  crm  ia-generativa
           <h3><span class="icono-min"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg></span><span class="es">Agilidad y metodologías</span><span class="en">Agile &amp; methods</span><i>3</i></h3>
           <ul>
             <li><div><b>Scrum Fundamentals Certified</b><span>SCRUMstudy · 2025</span></div><em class="k-cert"><span class="es">Certificación</span><span class="en">Certification</span></em></li>
-            <li><div><b>Agile Explorer</b><span>IBM SkillsBuild · 2024</span></div><em class="k-ver"><span class="es">Verificada · Credly</span><span class="en">Verified · Credly</span></em></li>
+            <li><div><b>Agile Explorer</b><span>IBM SkillsBuild · 2024</span><a class="ver-cred" href="https://www.credly.com/badges/9556dbff-5164-4ae9-a467-cecb97829833/public_url" target="_blank" rel="noopener"><span class="es">Ver credencial</span><span class="en">View credential</span> ↗</a></div><em class="k-ver"><span class="es">Verificada · Credly</span><span class="en">Verified · Credly</span></em></li>
             <li><div><b><span class="es">Curso completo en Design Thinking</span><span class="en">Complete Design Thinking course</span></b><span>Udemy · jun 2025</span></div><em class="k-curso"><span class="es">Curso</span><span class="en">Course</span></em></li>
           </ul>
         </article>
         <article class="grupo-cert aparece" data-g="negocio">
-          <h3><span class="icono-min"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"/></svg></span><span class="es">Negocio, IA y transformación digital</span><span class="en">Business, AI &amp; digital transformation</span><i>2</i></h3>
+          <h3><span class="icono-min"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"/></svg></span><span class="es">Negocio, IA y transformación digital</span><span class="en">Business, AI &amp; digital transformation</span><i>3</i></h3>
           <ul>
             <li><div><b><span class="es">Transformación Estratégica y Digital para Pymes</span><span class="en">Strategic &amp; Digital Transformation for SMEs</span></b><span>Academia Coca-Cola · FEMSA · Aliarse · oct 2024</span></div><em class="k-curso"><span class="es">Curso</span><span class="en">Course</span></em></li>
             <li><div><b><span class="es">IA: La nueva dimensión del conocimiento</span><span class="en">AI: The new dimension of knowledge</span></b><span>Universidad Fidélitas · sep 2025</span></div><em class="k-part"><span class="es">Participación</span><span class="en">Participation</span></em></li>
+            <li><div><b>Explore Emerging Tech</b><span>IBM SkillsBuild</span><a class="ver-cred" href="https://www.credly.com/badges/49e74a8b-acbe-474f-8f4a-25c2111b8ad3/public_url" target="_blank" rel="noopener"><span class="es">Ver credencial</span><span class="en">View credential</span> ↗</a></div><em class="k-ver"><span class="es">Verificada · Credly</span><span class="en">Verified · Credly</span></em></li>
           </ul>
         </article>
       </div>
+    </div>
+  </section>
+
+  <!-- ===================== RECOMENDACIONES ===================== -->
+  <section id="recomendaciones">
+    <div class="contenedor">
+      <div class="cabeza">
+        <p class="ojo aparece"><span class="es">Recomendaciones</span><span class="en">Recommendations</span></p>
+        <h2 class="aparece"><span class="es">Lo que dicen <span class="suave">quienes han trabajado conmigo</span></span><span class="en">What people say <span class="suave">who have worked with me</span></span></h2>
+      </div>
+      <div class="recs">
+        <figure class="rec aparece">
+          <blockquote><span class="es">«Responsable y profesional, con gran capacidad de resolución de problemas, aprendizaje y trabajo en equipo. Paz será una excelente adición a cualquier equipo de trabajo. La recomiendo ampliamente.»</span><span class="en">“Responsible and professional, with a great ability to solve problems, learn and work in a team. Paz will be an excellent addition to any team. I highly recommend her.”</span></blockquote>
+          <figcaption><span class="ini">ET</span><div><b>Ecaterina Trujillo Fernández</b><span class="es">Gerente de Proyectos · Hivos América Latina. Supervisó directamente a María Paz.</span><span class="en">Project Manager · Hivos Latin America. Directly supervised María Paz.</span></div></figcaption>
+        </figure>
+        <figure class="rec aparece">
+          <blockquote><span class="es">«Participó en la administración de nuestro sitio web, la gestión del CRM y tareas básicas de administración de bases de datos de clientes, demostrando iniciativa, compromiso y disposición para aprender.»</span><span class="en">“She took part in managing our website, the CRM and basic customer database administration, showing initiative, commitment and willingness to learn.”</span></blockquote>
+          <figcaption><span class="ini">DB</span><div><b>David Barquero Víquez</b><span class="es">Especialista en Ciberseguridad · CyberBalance. Fue su profesor en Ingeniería en Sistemas.</span><span class="en">Cybersecurity Specialist · CyberBalance. Was her professor in Systems Engineering.</span></div></figcaption>
+        </figure>
+        <figure class="rec aparece">
+          <blockquote><span class="es">«Es una persona que siempre está dispuesta a ir más allá y dar la milla extra. No se achica ante las dificultades y su resiliencia la hará destacar.»</span><span class="en">“She is always willing to go above and beyond. She does not back down from difficulties, and her resilience will make her stand out.”</span></blockquote>
+          <figcaption><span class="ini">NP</span><div><b>Ing. Néstor Prela Quesada</b><span class="es">Profesor · Universidad Fidélitas. La asesoró en el Reto Marte.</span><span class="en">Professor · Universidad Fidélitas. Advised her at Reto Marte.</span></div></figcaption>
+        </figure>
+      </div>
+      <p class="recs-pie aparece"><span class="es">Las recomendaciones completas están en mi</span><span class="en">Full recommendations are on my</span> <a href="https://www.linkedin.com/in/mar%C3%ADa-paz-garc%C3%ADa-uma%C3%B1a/details/recommendations/" target="_blank" rel="noopener">LinkedIn ↗</a></p>
     </div>
   </section>
 
@@ -1342,6 +1567,7 @@ sql  power-bi  excel  java  c#  git  crm  ia-generativa
       <g class="flota-2"><line x1="900" y1="480" x2="1080" y2="400"/><line x1="1080" y1="400" x2="1120" y2="540"/><circle cx="900" cy="480" r="2"/><circle cx="1080" cy="400" r="2.5"/><circle cx="1120" cy="540" r="2"/></g>
     </svg>
     <div class="contenedor">
+      <img class="logo-contacto aparece" src="logo-mpg-grande.png" alt="MPG · María Paz García Umaña" width="825" height="300" loading="lazy">
       <p class="ojo aparece"><span class="es">Contacto</span><span class="en">Contact</span></p>
       <h2 class="aparece"><span class="es">Hablemos <span class="suave">de oportunidades en tecnología</span></span><span class="en">Let's connect <span class="suave">about tech opportunities</span></span></h2>
       <p class="bajada aparece"><span class="es">Busco una práctica o un primer puesto en datos, sistemas o soporte TI. Y si necesitás ayuda con un proyecto, también podés escribirme: te respondo pronto.</span><span class="en">I'm looking for an internship or a first role in data, systems or IT support. And if you need help with a project, feel free to write to me: I'll get back to you soon.</span></p>
@@ -1376,6 +1602,7 @@ sql  power-bi  excel  java  c#  git  crm  ia-generativa
           <ul>
             <li><a href="#competencias"><span class="es">Competencias</span><span class="en">Skills</span></a></li>
             <li><a href="#certificaciones"><span class="es">Certificaciones</span><span class="en">Certifications</span></a></li>
+            <li><a href="#recomendaciones"><span class="es">Recomendaciones</span><span class="en">Recommendations</span></a></li>
             <li><a href="#mas-alla"><span class="es">Más allá de mí</span><span class="en">Beyond work</span></a></li>
             <li><a href="https://www.linkedin.com/in/mar%C3%ADa-paz-garc%C3%ADa-uma%C3%B1a" target="_blank" rel="noopener">LinkedIn</a></li>
           </ul>
